@@ -1,0 +1,35 @@
+{
+	"name": "lmdi/index",
+	"type": "phpbb-extension",
+	"description": "Tag Indexing for phpBB 3.1",
+	"homepage": "http://www.insecte.org/ext/readme.txt",
+	"version": "1.0.6",
+	"time": "2017-2-23",
+	"license": "GPL-2.0",
+	"authors": 
+	[	{
+			"name": "Pierre Duhem",
+			"email": "pierre@duhem.com",
+			"homepage": "http://www.insecte.org/ext/readme.txt",
+			"role": "Developer of Indexing extension"
+		},
+		{
+			"name": "Gijs Martens",
+			"email": "admin@godfathertalks.com",
+			"homepage": "http://www.godfathertalks.com",
+			"role": "Symfony calling scheme"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "LMDI Indexation",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.3.0@dev"
+		}
+	}
+}

@@ -1,0 +1,96 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+     lmdi.index.listener:
+        class: lmdi\index\event\listener
+        arguments:
+            - '@dbal.conn'
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@cache'
+            - '@user'
+            - '%lmdi.index.tables.rh_t%'
+            - '%lmdi.index.tables.rh_tt%'
+        tags:
+            - { name: event.listener }
+
+     lmdi.index.controller:
+        class: lmdi\index\controller\main
+        arguments:
+            - '@lmdi.index.core.index'
+            - '@lmdi.index.core.baledit'
+            - '@lmdi.index.core.aiguillage'
+            - '@lmdi.index.core.balises'
+            - '@template'
+            - '@user'
+            - '@request'
+            - '@controller.helper'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+
+     lmdi.index.core.index:
+        class: lmdi\index\core\index
+        arguments:
+            - '@template'
+            - '@user'
+            - '@dbal.conn'
+            - '@config'
+            - '@controller.helper'
+            - '@auth'
+            - '@ext.manager'
+            - '@path_helper'
+            - '%core.php_ext%'
+            - '%core.root_path%'
+            - '%lmdi.index.tables.rh_tt%'
+            - '%lmdi.index.tables.rh_t%'
+
+     lmdi.index.core.baledit:
+        class: lmdi\index\core\baledit
+        arguments:
+            - '@template'
+            - '@user'
+            - '@dbal.conn'
+            - '@config'
+            - '@controller.helper'
+            - '@auth'
+            - '@ext.manager'
+            - '@path_helper'
+            - '@request'
+            - '%core.php_ext%'
+            - '%core.root_path%'
+            - '%lmdi.index.tables.rh_tt%'
+            - '%lmdi.index.tables.rh_t%'
+
+     lmdi.index.core.aiguillage:
+        class: lmdi\index\core\aiguillage
+        arguments:
+            - '@template'
+            - '@user'
+            - '@dbal.conn'
+            - '@config'
+            - '@controller.helper'
+            - '@auth'
+            - '@ext.manager'
+            - '@path_helper'
+            - '%core.php_ext%'
+            - '%core.root_path%'
+            - '%lmdi.index.tables.rh_tt%'
+            - '%lmdi.index.tables.rh_t%'
+
+     lmdi.index.core.balises:
+        class: lmdi\index\core\balises
+        arguments:
+            - '@template'
+            - '@user'
+            - '@dbal.conn'
+            - '@config'
+            - '@controller.helper'
+            - '@auth'
+            - '@ext.manager'
+            - '@path_helper'
+            - '%core.php_ext%'
+            - '%core.root_path%'
+            - '%lmdi.index.tables.rh_tt%'
+            - '%lmdi.index.tables.rh_t%'

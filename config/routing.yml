@@ -1,0 +1,3 @@
+lmdi_index_controller:
+    path: /index
+    defaults: { _controller: lmdi.index.controller:handle_index }

@@ -1,0 +1,37 @@
+<!-- INCLUDECSS index.css -->
+<!-- INCLUDE overall_header.html -->
+
+<h2>{TITLE}</h2>
+
+<div class="panel">
+   <div class="inner">
+	<span class="corners-top"><span></span></span>
+		
+	<div class="panel">
+	<div class="inner">
+	<p>{MESSAGE}</p>
+	<div class="content">
+		<form id="acp_board" method="post" action="{U_ACTION}">
+		<fieldset>
+			<legend>{TOPICTAGS_DELETION}</legend>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd>&nbsp;</dd>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dt><input type="hidden" name="tag_code" value="{TAG_CODE}"/>
+				<dt><input type="hidden" name="tag_name" value="{TAG_NAME}"/>
+				<input class="button1" type="submit" id="yes" name="yes" value="{L_YES}" />&nbsp;
+				<input class="button2" type="submit" id="no" name="no" value="{L_NO}" />
+				</dt>
+			</dl>
+		</fieldset>
+		{S_FORM_TOKEN}
+		</form>
+	</div></div></div>
+	<span class="corners-bottom"><span></span></span>
+   </div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

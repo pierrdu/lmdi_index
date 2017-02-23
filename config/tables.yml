@@ -1,0 +1,4 @@
+parameters:
+    lmdi.index.tables.rh_t: %core.table_prefix%rh_topictags
+    lmdi.index.tables.rh_tt: %core.table_prefix%rh_topictags_tag
+
