@@ -451,7 +451,7 @@ class aiguillage
 		$params = "/index?mode=index&amp;cap=A";
 		$url = append_sid ($this->phpbb_root_path . 'app.' . $this->phpEx . $params);
 		$abc_links .= "$str_links &mdash; <a href =\"$url\">Cliquez ici</a></h2><br><br>";
-		
+
 		// Table of links to the passive pages
 		$corps = '<h2>' . $this->user->lang['INDEX_DISPLAY_PAGES'] . '</h2>';
 		$corps .= "<p>Vous trouverez ci-dessous tout d'abord un tableau des classes et des ordres représentés dans les pages de balises.<br />Cliquez sur les liens pour atteindre la partie de la page d'accueil qui vous intéresse.</p>";
@@ -488,16 +488,20 @@ class aiguillage
 			$corps .= "<br><table class=\"deg\">";
 			$corps .= "\n<tr class=\"deg\"><td class=\"deg3\" id=\"$classe\" colspan=\"4\">$classe</td></tr>";
 			$corps .= "</table><br>";
-			
+
 			$corps .= "<table class=\"deg\">";
 			foreach ($this->{$classe} as $ordre)
 			{
 				if (!empty ($ordre))
 				{
 					if (in_array ($ordre, $this->petits_ordres))
+					{
 						$corps .= "\n<tr class=\"deg\"><td class=\"deg1\" id=\"$ordre\" colspan=\"4\"><a href=\"http://www.insecte.org/forum/app.php/tag/{$ordre}\">$ordre</a></td></tr>";
+					}
 					else
+					{
 						$corps .= "\n<tr class=\"deg\"><td class=\"deg1\" id=\"$ordre\" colspan=\"4\">$ordre</td></tr>";
+					}
 					if (!empty ($this->{$ordre}))
 					{
 						$nbcases = count ($this->{$ordre});
