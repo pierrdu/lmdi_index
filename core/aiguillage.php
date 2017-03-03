@@ -39,251 +39,284 @@ class aiguillage
 	// Tous ces tableaux doivent être un multiple de 4.
 
 	protected $Animalia = array (
-	"Insecta", "Arachnida", "Chilopoda", "Crustacea", 
-	"Diplopoda", "Entognatha", /*"Merostomata", "Pauropoda",*/ "Pycnogonida", "Symphyla", 
+	"Insecta", "Arachnida", "Chilopoda", "Crustacea",
+	"Diplopoda", "Entognatha", /*"Merostomata", "Pauropoda",*/ "Pycnogonida", "Symphyla",
 	"Tardigrada");
 
 	protected $Insecta = array (
-	"Coleoptera", "Dermaptera", "Dictyoptera", "Diptera", 
-	"Embioptera", "Ephemeroptera", "Heteroptera", "Homoptera", 
-	"Hymenoptera", "Lepidoptera", "Mantophasmatodea", "Mecoptera", 
-	"Megaloptera", "Microcoryphia", "Neuroptera", "Odonata", 
-	"Orthoptera", "Phasmatodea", "Phthiraptera", "Plecoptera", 
-	"Psocoptera", "Raphidioptera", "Siphonaptera", "Strepsiptera", 
+	"Coleoptera", "Dermaptera", "Dictyoptera", "Diptera",
+	"Embioptera", "Ephemeroptera", "Heteroptera", "Homoptera",
+	"Hymenoptera", "Lepidoptera", "Mantophasmatodea", "Mecoptera",
+	"Megaloptera", "Microcoryphia", "Neuroptera", "Odonata",
+	"Orthoptera", "Phasmatodea", "Phthiraptera", "Plecoptera",
+	"Psocoptera", "Raphidioptera", "Siphonaptera", "Strepsiptera",
 	"Thysanoptera", "Trichoptera", "Zygentoma", "");
 	protected $Coleoptera = array (
-	"Aderidae", "Aegialiidae", "Agyrtidae", "Alexiidae", 
-	"Anobiidae", "Anthicidae", "Anthribidae", "Anthribidae", 
-	"Aphodiidae", "Apionidae", "Attelabidae", "Biphyllidae", 
-	"Bolboceratidae", "Bostrichidae", "Bothrideridae", "Brachyceridae", 
-	"Brentidae", "Buprestidae", "Byrrhidae", "Byturidae", 
-	"Cantharidae", "Carabidae", "Cerambycidae", "Ceratocanthidae", 
-	"Cerophytidae", "Cerylonidae", "Cetoniidae", "Chironidae", 
-	"Chrysomelidae", "Ciidae", "Cleridae", "Coccinellidae", 
-	"Corylophidae", "Cryptophagidae", "Cucujidae", "Curculionidae", 
-	"Cybocephalidae", "Dascillidae", "Dasytidae", "Dermestidae", 
-	"Derodontidae", "Discolomatidae", "Drilidae", "Dryophthoridae", 
-	"Dryopidae", "Dynastidae", "Dytiscidae", "Elateridae", "Elmidae", 
-	"Endecatomidae", "Endomychidae", "Erirhinidae", "Erotylidae", 
-	"Eucinetidae", "Eucnemidae", "Geotrupidae", "Glaphyridae", 
-	"Glaresidae", "Gyrinidae", "Haliplidae", "Helotidae", 
-	"Heteroceridae", "Histeridae", "Hybosoridae", "Hydraenidae", 
-	"Hydrophilidae", "Hygrobiidae", "Kateretidae", "Laemophloeidae", 
-	"Lampyridae", "Languriidae", "Latridiidae", "Leiodidae", 
-	"Limnichidae", "Lucanidae", "Lycidae", "Lyctidae", 
-	"Lymexylidae", "Malachiidae", "Melandryidae", "Meloidae", 
-	"Melolonthidae", "Melyridae", "Monotomidae", "Mordellidae", 
-	"Mycetophagidae", "Mycteridae", "Nanophyidae", "Nemonychidae", 
-	"Nilionidae", "Nitidulidae", "Nosodendridae", "Noteridae", 
-	"Ochodaeidae", "Oedemeridae", "Omalisidae", "Pachypodidae", 
-	"Passalidae", "Passandridae", "Phalacridae", "Phloeostichidae", 
-	"Phloiophilidae", "Prionoceridae", "Prostomidae", "Ptiliidae", 
-	"Pyrochroidae", "Pythidae", "Raymondionymidae", "Rhipiceridae", 
-	"Rhynchitidae", "Ripiphoridae", "Rutelidae", "Salpingidae", 
-	"Scarabaeidae", "Scirtidae", "Scraptiidae", "Scydmaenidae", 
-	"Silphidae", "Silvanidae", "Sphaeritidae", "Sphindidae", 
-	"Staphylinidae", "Tenebrionidae", "Tetratomidae", "Throscidae", 
+	"Aderidae", "Aegialiidae", "Agyrtidae", "Alexiidae",
+	"Anobiidae", "Anthicidae", "Anthribidae", "Anthribidae",
+	"Aphodiidae", "Apionidae", "Attelabidae", "Biphyllidae",
+	"Bolboceratidae", "Bostrichidae", "Bothrideridae", "Brachyceridae",
+	"Brentidae", "Buprestidae", "Byrrhidae", "Byturidae",
+	"Cantharidae", "Carabidae", "Cerambycidae", "Ceratocanthidae",
+	"Cerophytidae", "Cerylonidae", "Cetoniidae", "Chironidae",
+	"Chrysomelidae", "Ciidae", "Cleridae", "Coccinellidae",
+	"Corylophidae", "Cryptophagidae", "Cucujidae", "Curculionidae",
+	"Cybocephalidae", "Dascillidae", "Dasytidae", "Dermestidae",
+	"Derodontidae", "Discolomatidae", "Drilidae", "Dryophthoridae",
+	"Dryopidae", "Dynastidae", "Dytiscidae", "Elateridae", "Elmidae",
+	"Endecatomidae", "Endomychidae", "Erirhinidae", "Erotylidae",
+	"Eucinetidae", "Eucnemidae", "Geotrupidae", "Glaphyridae",
+	"Glaresidae", "Gyrinidae", "Haliplidae", "Helotidae",
+	"Heteroceridae", "Histeridae", "Hybosoridae", "Hydraenidae",
+	"Hydrophilidae", "Hygrobiidae", "Kateretidae", "Laemophloeidae",
+	"Lampyridae", "Languriidae", "Latridiidae", "Leiodidae",
+	"Limnichidae", "Lucanidae", "Lycidae", "Lyctidae",
+	"Lymexylidae", "Malachiidae", "Melandryidae", "Meloidae",
+	"Melolonthidae", "Melyridae", "Monotomidae", "Mordellidae",
+	"Mycetophagidae", "Mycteridae", "Nanophyidae", "Nemonychidae",
+	"Nilionidae", "Nitidulidae", "Nosodendridae", "Noteridae",
+	"Ochodaeidae", "Oedemeridae", "Omalisidae", "Pachypodidae",
+	"Passalidae", "Passandridae", "Phalacridae", "Phloeostichidae",
+	"Phloiophilidae", "Prionoceridae", "Prostomidae", "Ptiliidae",
+	"Pyrochroidae", "Pythidae", "Raymondionymidae", "Rhipiceridae",
+	"Rhynchitidae", "Ripiphoridae", "Rutelidae", "Salpingidae",
+	"Scarabaeidae", "Scirtidae", "Scraptiidae", "Scydmaenidae",
+	"Silphidae", "Silvanidae", "Sphaeritidae", "Sphindidae",
+	"Staphylinidae", "Tenebrionidae", "Tetratomidae", "Throscidae",
 	"Trictenotomidae", "Trogidae", "Trogositidae", "Zopheridae");
 	protected $Dermaptera = array (
-	"Anisolabididae", "Apachyidae", "Chelisochidae", "Forficulidae", 
+	"Anisolabididae", "Apachyidae", "Chelisochidae", "Forficulidae",
 	"Labiduridae", "Pygidicranidae", "Spongiphoridae", "");
 	protected $Dictyoptera = array (
-	"Acanthopidae", "Amorphoscelididae", "Blaberidae", "Blattellidae", 
-	"Blattidae", "Corydiidae", "Empusidae", "Eremiaphilidae", 
-	"Hymenopodidae", "Iridopterigidae", "Kalotermitidae", "Mantidae", 
+	"Acanthopidae", "Amorphoscelididae", "Blaberidae", "Blattellidae",
+	"Blattidae", "Corydiidae", "Empusidae", "Eremiaphilidae",
+	"Hymenopodidae", "Iridopterigidae", "Kalotermitidae", "Mantidae",
 	"Polyphagidae", "Rhinotermitidae", "Tarachodidae", "Termitidae");
 	protected $Diptera = array (
-	"Acroceridae", "Agromyzidae", "Anisopodidae", "Anthomyiidae", 
-	"Asilidae", "Asteiidae", "Athericidae", "Aulacigastridae", 
-	"Bibionidae", "Blephariceridae", "Bolitophilidae", "Bombyliidae", 
-	"Brachystomatidae", "Braulidae", "Calliphoridae", "Camillidae", 
-	"Campichoetidae", "Carnidae", "Cecidomyiidae", "Ceratopogonidae", 
-	"Chamaemyiidae", "Chaoboridae", "Chironomidae", "Chloropidae", 
-	"Chyromyidae", "Clusiidae", "Coelopidae", "Coenomyiidae", 
-	"Conopidae", "Culicidae", "Cylindrotomidae", "Ditomyiidae", 
-	"Dixidae", "Dolichopodidae", "Drosophilidae", "Dryomyzidae", 
-	"Empididae", "Ephydridae", "Fanniidae", "Helcomyzidae", 
-	"Heleomyzidae", "Hippoboscidae", "Hybotidae", "Keroplatidae", 
-	"Lauxaniidae", "Limoniidae", "Lonchaeidae", "Lonchopteridae", 
-	"Megamerinidae", "Micropezidae", "Microphoridae", "Milichiidae", 
-	"Muscidae", "Mycetophilidae", "Mydidae", "Nemestrinidae", 
-	"Neriidae", "Nycteribiidae", "Odiniidae", "Oestridae", 
-	"Opomyzidae", "Pallopteridae", "Pediciidae", "Periscelididae", 
-	"Phaeomyiidae", "Phoridae", "Pipunculidae", "Platypezidae", 
-	"Platystomatidae", "Psilidae", "Psychodidae", "Ptychopteridae", 
-	"Rhagionidae", "Rhinophoridae", "Richardiidae", "Sarcophagidae", 
-	"Scathophagidae", "Scatopsidae", "Scenopinidae", "Sciaridae", 
-	"Sciomyzidae", "Sepsidae", "Simuliidae", "Sphaeroceridae", 
-	"Stratiomyidae", "Syrphidae", "Tabanidae", "Tachinidae", 
-	"Tanypezidae", "Tephritidae", "Tethinidae", "Therevidae", 
-	"Tipulidae", "Trichoceridae", "Trixoscelididae", "Ulidiidae", 
+	"Acroceridae", "Agromyzidae", "Anisopodidae", "Anthomyiidae",
+	"Asilidae", "Asteiidae", "Athericidae", "Aulacigastridae",
+	"Bibionidae", "Blephariceridae", "Bolitophilidae", "Bombyliidae",
+	"Brachystomatidae", "Braulidae", "Calliphoridae", "Camillidae",
+	"Campichoetidae", "Carnidae", "Cecidomyiidae", "Ceratopogonidae",
+	"Chamaemyiidae", "Chaoboridae", "Chironomidae", "Chloropidae",
+	"Chyromyidae", "Clusiidae", "Coelopidae", "Coenomyiidae",
+	"Conopidae", "Culicidae", "Cylindrotomidae", "Ditomyiidae",
+	"Dixidae", "Dolichopodidae", "Drosophilidae", "Dryomyzidae",
+	"Empididae", "Ephydridae", "Fanniidae", "Helcomyzidae",
+	"Heleomyzidae", "Hippoboscidae", "Hybotidae", "Keroplatidae",
+	"Lauxaniidae", "Limoniidae", "Lonchaeidae", "Lonchopteridae",
+	"Megamerinidae", "Micropezidae", "Microphoridae", "Milichiidae",
+	"Muscidae", "Mycetophilidae", "Mydidae", "Nemestrinidae",
+	"Neriidae", "Nycteribiidae", "Odiniidae", "Oestridae",
+	"Opomyzidae", "Pallopteridae", "Pediciidae", "Periscelididae",
+	"Phaeomyiidae", "Phoridae", "Pipunculidae", "Platypezidae",
+	"Platystomatidae", "Psilidae", "Psychodidae", "Ptychopteridae",
+	"Rhagionidae", "Rhinophoridae", "Richardiidae", "Sarcophagidae",
+	"Scathophagidae", "Scatopsidae", "Scenopinidae", "Sciaridae",
+	"Sciomyzidae", "Sepsidae", "Simuliidae", "Sphaeroceridae",
+	"Stratiomyidae", "Syrphidae", "Tabanidae", "Tachinidae",
+	"Tanypezidae", "Tephritidae", "Tethinidae", "Therevidae",
+	"Tipulidae", "Trichoceridae", "Trixoscelididae", "Ulidiidae",
 	"Vermileonidae", "Xylomyidae", "Xylophagidae", "");
-	protected $Embioptera = array ("Embiidae", "Oligotomidae", "", "");
+	protected $Embioptera = array ("Embiidae", "Oligotomidae", "", ""
+	);
 	protected $Ephemeroptera = array (
-	"Ameletidae", "Baetidae", "Caenidae", "Ephemerellidae", 
-	"Ephemeridae", "Heptageniidae", "Leptophlebiidae", "Oligoneuriidae", 
-	"Polymitarcyidae", "Potamanthidae", "Prosopistomatidae", "");
+	"Ameletidae", "Baetidae", "Caenidae", "Ephemerellidae",
+	"Ephemeridae", "Heptageniidae", "Leptophlebiidae", "Oligoneuriidae",
+	"Polymitarcyidae", "Potamanthidae", "Prosopistomatidae", ""
+	);
 	protected $Heteroptera = array (
-	"Acanthosomatidae", "Alydidae", "Anthocoridae", "Aphelocheiridae", 
-	"Aradidae", "Belostomatidae", "Berytidae", "Cimicidae", "Coreidae", 
-	"Corimelaenidae", "Corixidae", "Cydnidae", "Dinidoridae", 
-	"Dipsocoridae", "Gerridae", "Hebridae", "Hydrometridae", 
-	"Largidae", "Leptopodidae", "Lygaeidae", "Mesoveliidae", 
-	"Microphysidae", "Miridae", "Nabidae", "Naucoridae", 
-	"Nepidae", "Notonectidae", "Ochteridae", "Pentatomidae", 
-	"Piesmatidae", "Plataspididae", "Pleidae", "Pyrrhocoridae", 
-	"Reduviidae", "Rhopalidae", "Saldidae", "Scutelleridae", 
-	"Stenocephalidae", "Tessaratomidae", "Thaumastocoridae", "Thyreocoridae", 
-	"Tingidae", "Veliidae", "", "");
+	"Acanthosomatidae", "Alydidae", "Anthocoridae", "Aphelocheiridae",
+	"Aradidae", "Belostomatidae", "Berytidae", "Cimicidae", "Coreidae",
+	"Corimelaenidae", "Corixidae", "Cydnidae", "Dinidoridae",
+	"Dipsocoridae", "Gerridae", "Hebridae", "Hydrometridae",
+	"Largidae", "Leptopodidae", "Lygaeidae", "Mesoveliidae",
+	"Microphysidae", "Miridae", "Nabidae", "Naucoridae",
+	"Nepidae", "Notonectidae", "Ochteridae", "Pentatomidae",
+	"Piesmatidae", "Plataspididae", "Pleidae", "Pyrrhocoridae",
+	"Reduviidae", "Rhopalidae", "Saldidae", "Scutelleridae",
+	"Stenocephalidae", "Tessaratomidae", "Thaumastocoridae", "Thyreocoridae",
+	"Tingidae", "Veliidae", "", ""
+	);
 	protected $Homoptera = array (
-	"Achilidae", "Adelgidae", "Aleyrodidae", "Aphididae", 
-	"Aphrophoridae", "Caliscelidae", "Cercopidae", "Cicadellidae", 
-	"Cicadidae", "Cixiidae", "Coccidae", "Delphacidae", 
-	"Derbidae", "Diaspididae", "Dictyopharidae", "Eurybrachidae", 
-	"Flatidae", "Fulgoridae", "Homotomidae", "Issidae", 
-	"Margarodidae", "Membracidae", "Ortheziidae", "Phylloxeridae", 
-	"Pseudococcidae", "Psyllidae", "Ricaniidae", "Tettigometridae", 
-	"Tibicinidae", "Triozidae", "", "");
+	"Achilidae", "Adelgidae", "Aleyrodidae", "Aphididae",
+	"Aphrophoridae", "Caliscelidae", "Cercopidae", "Cicadellidae",
+	"Cicadidae", "Cixiidae", "Coccidae", "Delphacidae",
+	"Derbidae", "Diaspididae", "Dictyopharidae", "Eurybrachidae",
+	"Flatidae", "Fulgoridae", "Homotomidae", "Issidae",
+	"Margarodidae", "Membracidae", "Ortheziidae", "Phylloxeridae",
+	"Pseudococcidae", "Psyllidae", "Ricaniidae", "Tettigometridae",
+	"Tibicinidae", "Triozidae", "", ""
+	);
 	protected $Hymenoptera = array (
-	"Ampulicidae", "Andrenidae", "Aphelinidae", "Apidae", 
-	"Argidae", "Aulacidae", "Bethylidae", "Braconidae", 
-	"Cephidae", "Ceraphronidae", "Chalcididae", "Chrysididae", 
-	"Cimbicidae", "Colletidae", "Crabronidae", "Cynipidae", 
-	"Diapriidae", "Diprionidae", "Dryinidae", "Embolemidae", 
-	"Encyrtidae", "Eucharitidae", "Eulophidae", "Eupelmidae", 
-	"Eurytomidae", "Evaniidae", "Figitidae", "Formicidae", 
-	"Gasteruptiidae", "Halictidae", "Heloridae", "Ibaliidae", 
-	"Ichneumonidae", "Leucospidae", "Megachilidae", "Megalodontesidae", 
-	"Megaspilidae", "Melittidae", "Mutillidae", "Mymaridae", 
-	"Ormyridae", "Pamphiliidae", "Pelecinidae", "Perilampidae", 
-	"Platygastridae", "Pompilidae", "Proctotrupidae", "Pteromalidae", 
-	"Sapygidae", "Scelionidae", "Scoliidae", "Siricidae", 
-	"Sphecidae", "Stephanidae", "Tenthredinidae", "Tetracampidae", 
-	"Tiphiidae", "Torymidae", "Trigonalidae", "Vespidae", 
-	"Xiphydriidae", "Xyelidae", "", "");
+	"Ampulicidae", "Andrenidae", "Aphelinidae", "Apidae",
+	"Argidae", "Aulacidae", "Bethylidae", "Braconidae",
+	"Cephidae", "Ceraphronidae", "Chalcididae", "Chrysididae",
+	"Cimbicidae", "Colletidae", "Crabronidae", "Cynipidae",
+	"Diapriidae", "Diprionidae", "Dryinidae", "Embolemidae",
+	"Encyrtidae", "Eucharitidae", "Eulophidae", "Eupelmidae",
+	"Eurytomidae", "Evaniidae", "Figitidae", "Formicidae",
+	"Gasteruptiidae", "Halictidae", "Heloridae", "Ibaliidae",
+	"Ichneumonidae", "Leucospidae", "Megachilidae", "Megalodontesidae",
+	"Megaspilidae", "Melittidae", "Mutillidae", "Mymaridae",
+	"Ormyridae", "Pamphiliidae", "Pelecinidae", "Perilampidae",
+	"Platygastridae", "Pompilidae", "Proctotrupidae", "Pteromalidae",
+	"Sapygidae", "Scelionidae", "Scoliidae", "Siricidae",
+	"Sphecidae", "Stephanidae", "Tenthredinidae", "Tetracampidae",
+	"Tiphiidae", "Torymidae", "Trigonalidae", "Vespidae",
+	"Xiphydriidae", "Xyelidae", "", ""
+	);
 	protected $Lepidoptera = array (
-	"Acrolepiidae", "Acrolophidae", "Adelidae", "Agonoxenidae", 
-	"Alucitidae", "Anthelidae", "Apatelodidae", "Arctiidae", 
-	"Argyresthiidae", "Autostichidae", "Batrachedridae", "Bedelliidae", 
-	"Blastobasidae", "Bombycidae", "Brachodidae", "Brahmaeidae", 
-	"Bucculatricidae", "Castniidae", "Chimabachidae", "Choreutidae", 
-	"Cimeliidae", "Coleophoridae", "Cosmopterigidae", "Cossidae", 
-	"Crambidae", "Douglasiidae", "Drepanidae", "Elachistidae", 
-	"Endromidae", "Epermeniidae", "Erebidae", "Eriocraniidae", 
-	"Eupterotidae", "Euteliidae", "Gelechiidae", "Geometridae", 
-	"Glyphipterigidae", "Gracillariidae", "Heliodinidae", "Heliozelidae", 
-	"Hepialidae", "Hesperiidae","Heterogynidae", "Incurprotectediidae", 
+	"Acrolepiidae", "Acrolophidae", "Adelidae", "Agonoxenidae",
+	"Alucitidae", "Anthelidae", "Apatelodidae", "Arctiidae",
+	"Argyresthiidae", "Autostichidae", "Batrachedridae", "Bedelliidae",
+	"Blastobasidae", "Bombycidae", "Brachodidae", "Brahmaeidae",
+	"Bucculatricidae", "Castniidae", "Chimabachidae", "Choreutidae",
+	"Cimeliidae", "Coleophoridae", "Cosmopterigidae", "Cossidae",
+	"Crambidae", "Douglasiidae", "Drepanidae", "Elachistidae",
+	"Endromidae", "Epermeniidae", "Erebidae", "Eriocraniidae",
+	"Eupterotidae", "Euteliidae", "Gelechiidae", "Geometridae",
+	"Glyphipterigidae", "Gracillariidae", "Heliodinidae", "Heliozelidae",
+	"Hepialidae", "Hesperiidae","Heterogynidae", "Incurprotectediidae",
 	"Lasiocampidae", "Lecithoceridae", "Limacodidae", "Lycaenidae",
-	"Lyonetiidae", "Lypusidae", "Megalopygidae", "Micropterigidae", 
-	"Momphidae", "Nepticulidae", "Noctuidae", "Nolidae", 
-	"Notodontidae", "Nymphalidae", "Oecophoridae", "Opostegidae", 
-	"Papilionidae", "Peleopodidae", "Pieridae", "Plutellidae", 
-	"Praydidae", "Prodoxidae", "Psychidae", "Pterolonchidae", 
-	"Pterophoridae", "Pyralidae", "Riodinidae", "Saturniidae", 
-	"Schreckensteiniidae", "Scythrididae", "Sesiidae", "Somabrachyidae", 
-	"Sphingidae", "Stathmopodidae", "Thyrididae", "Tineidae", 
-	"Tischeriidae", "Tortricidae", "Uraniidae", "Urodidae", 
-	"Yponomeutidae", "Ypsolophidae", "Zygaenidae", "");
-	protected $Mantophasmatodea = array ("Mantophasmatidae", "", "", "");
-	protected $Mecoptera = array ("Bittacidae", "Boreidae", "Panorpidae", "");
-	protected $Megaloptera = array ("Corydalidae", "Sialidae", "", "");
-	protected $Microcoryphia = array ("Machilidae", "Meinertellidae", "", "");
+	"Lyonetiidae", "Lypusidae", "Megalopygidae", "Micropterigidae",
+	"Momphidae", "Nepticulidae", "Noctuidae", "Nolidae",
+	"Notodontidae", "Nymphalidae", "Oecophoridae", "Opostegidae",
+	"Papilionidae", "Peleopodidae", "Pieridae", "Plutellidae",
+	"Praydidae", "Prodoxidae", "Psychidae", "Pterolonchidae",
+	"Pterophoridae", "Pyralidae", "Riodinidae", "Saturniidae",
+	"Schreckensteiniidae", "Scythrididae", "Sesiidae", "Somabrachyidae",
+	"Sphingidae", "Stathmopodidae", "Thyrididae", "Tineidae",
+	"Tischeriidae", "Tortricidae", "Uraniidae", "Urodidae",
+	"Yponomeutidae", "Ypsolophidae", "Zygaenidae", ""
+	);
+	protected $Mantophasmatodea = array ("Mantophasmatidae", "", "", ""
+	);
+	protected $Mecoptera = array ("Bittacidae", "Boreidae", "Panorpidae", ""
+	);
+	protected $Megaloptera = array ("Corydalidae", "Sialidae", "", ""
+	);
+	protected $Microcoryphia = array ("Machilidae", "Meinertellidae", "", ""
+	);
 	protected $Neuroptera = array (
-	"Ascalaphidae", "Berothidae", "Chrysopidae", "Coniopterygidae", 
-	"Dilaridae", "Hemerobiidae", "Mantispidae", "Myrmeleontidae", 
-	"Nemopteridae", "Osmylidae", "Sisyridae", "");
+	"Ascalaphidae", "Berothidae", "Chrysopidae", "Coniopterygidae",
+	"Dilaridae", "Hemerobiidae", "Mantispidae", "Myrmeleontidae",
+	"Nemopteridae", "Osmylidae", "Sisyridae", ""
+	);
 	protected $Odonata = array (
-	"Aeschnidiidae", "Aeshnidae", "Calopterygidae", "Chlorocyphidae", 
-	"Coenagrionidae", "Cordulegastridae", "Corduliidae", "Dicteriadidae", 
-	"Epiophlebiidae", "Euphaeidae", "Gomphidae", "Lestidae", 
-	"Libellulidae", "Macromiidae", "Megapodagrionidae", "Neopetaliidae", 
-	"Perilestidae", "Platycnemididae", "Polythoridae", "Protoneuridae", 
-	"Pseudostigmatidae", "", "", "");
+	"Aeschnidiidae", "Aeshnidae", "Calopterygidae", "Chlorocyphidae",
+	"Coenagrionidae", "Cordulegastridae", "Corduliidae", "Dicteriadidae",
+	"Epiophlebiidae", "Euphaeidae", "Gomphidae", "Lestidae",
+	"Libellulidae", "Macromiidae", "Megapodagrionidae", "Neopetaliidae",
+	"Perilestidae", "Platycnemididae", "Polythoridae", "Protoneuridae",
+	"Pseudostigmatidae", "", "", ""
+	);
 	protected $Orthoptera = array (
-	"Acrididae", "Baissogryllidae", "Bradyporidae", "Chorotypidae", 
-	"Conocephalidae", "Gryllacrididae", "Gryllidae", "Gryllotalpidae", 
-	"Meconematidae", "Mogoplistidae", "Myrmecophilidae", "Pamphagidae", 
-	"Phaneropteridae", "Proscopiidae", "Pyrgomorphidae", "Rhaphidophoridae", 
-	"Romaleidae", "Schizodactylidae", "Tetrigidae", "Tettigoniidae", 
-	"Tridactylidae", "Trigonopterygidae", "", "");
+	"Acrididae", "Baissogryllidae", "Bradyporidae", "Chorotypidae",
+	"Conocephalidae", "Gryllacrididae", "Gryllidae", "Gryllotalpidae",
+	"Meconematidae", "Mogoplistidae", "Myrmecophilidae", "Pamphagidae",
+	"Phaneropteridae", "Proscopiidae", "Pyrgomorphidae", "Rhaphidophoridae",
+	"Romaleidae", "Schizodactylidae", "Tetrigidae", "Tettigoniidae",
+	"Tridactylidae", "Trigonopterygidae", "", ""
+	);
 	protected $Phasmatodea = array (
-	"Anareolatae", "Anisacanthidae", "Bacillidae", "Diapheromeridae", 
-	"Heteronemiidae", "Heteropterygidae", "Phasmatidae", "Phylliidae", 
-	"Pseudophasmatidae", "", "", "");
+	"Anareolatae", "Anisacanthidae", "Bacillidae", "Diapheromeridae",
+	"Heteronemiidae", "Heteropterygidae", "Phasmatidae", "Phylliidae",
+	"Pseudophasmatidae", "", "", ""
+	);
 	protected $Phthiraptera = array (
-	"Bovicoliidae", "Haematopinidae", "Menoponidae", "Pediculidae", 
-	"Philopteridae", "Polyplacidae", "Pthiridae", "Trichodectidae");
+	"Bovicoliidae", "Haematopinidae", "Menoponidae", "Pediculidae",
+	"Philopteridae", "Polyplacidae", "Pthiridae", "Trichodectidae"
+	);
 	protected $Plecoptera = array (
-	"Capniidae", "Chloroperlidae", "Leuctridae", "Nemouridae", 
-	"Perlidae", "Perlodidae", "Taeniopterygidae", "");
+	"Capniidae", "Chloroperlidae", "Leuctridae", "Nemouridae",
+	"Perlidae", "Perlodidae", "Taeniopterygidae", ""
+	);
 	protected $Psocoptera = array (
-	"Amphientomidae", "Caeciliusidae", "Ectopsocidae", "Elipsocidae", 
-	"Epipsocidae", "Lachesillidae", "Lepidopsocidae", "Liposcelididae", 
-	"Mesopsocidae", "Myopsocidae", "Peripsocidae", "Philotarsidae", 
-	"Psocidae", "Psyllipsocidae", "Stenopsocidae", "Trichopsocidae", 
-	"Trogiidae", "", "", "");
-	protected $Raphidioptera = array ("Inocelliidae", "Raphidiidae", "", "");
-	protected $Siphonaptera = array ("Ceratophyllidae", "Pulicidae", "", "");
-	protected $Strepsiptera = array ("Xenidae", "", "", "");
-	protected $Thysanoptera = array ("Aeolothripidae", "Phlaeothripidae", "Thripidae", "");
+	"Amphientomidae", "Caeciliusidae", "Ectopsocidae", "Elipsocidae",
+	"Epipsocidae", "Lachesillidae", "Lepidopsocidae", "Liposcelididae",
+	"Mesopsocidae", "Myopsocidae", "Peripsocidae", "Philotarsidae",
+	"Psocidae", "Psyllipsocidae", "Stenopsocidae", "Trichopsocidae",
+	"Trogiidae", "", "", ""
+	);
+	protected $Raphidioptera = array ("Inocelliidae", "Raphidiidae", "", ""
+	);
+	protected $Siphonaptera = array ("Ceratophyllidae", "Pulicidae", "", ""
+	);
+	protected $Strepsiptera = array ("Xenidae", "", "", ""
+	);
+	protected $Thysanoptera = array ("Aeolothripidae", "Phlaeothripidae", "Thripidae", ""
+	);
 	protected $Trichoptera = array (
-	"Apataniidae", "Goeridae", "Helicopsychidae", "Hydropsychidae", 
-	"Hydroptilidae", "Leptoceridae", "Limnephilidae", "Odontoceridae", 
-	"Philopotamidae", "Phryganeidae", "Polycentropodidae", "Psychomyiidae", 
-	"Rhyacophilidae", "Sericostomatidae", "", "");
-	protected $Zygentoma  = array ("Lepismatidae", "Nicoletiidae", "", "");
+	"Apataniidae", "Goeridae", "Helicopsychidae", "Hydropsychidae",
+	"Hydroptilidae", "Leptoceridae", "Limnephilidae", "Odontoceridae",
+	"Philopotamidae", "Phryganeidae", "Polycentropodidae", "Psychomyiidae",
+	"Rhyacophilidae", "Sericostomatidae", "", ""
+	);
+	protected $Zygentoma  = array ("Lepismatidae", "Nicoletiidae", "", ""
+	);
 
 	protected $Arachnida = array (
-	"Amblypygi", "Araneae", "Astigmata", "Ixodida", 
-	"Mesostigmata", "Opiliones", "Oribatida", "Prostigmata", 
-	"Pseudoscorpiones", "Ricinulei", "Scorpiones", "Solifugae", 
-	"Uropygi", "", "", "");
-	protected $Amblypygi = array ("Phrynichidae", "Phrynidae", "", "");
+	"Amblypygi", "Araneae", "Astigmata", "Ixodida",
+	"Mesostigmata", "Opiliones", "Oribatida", "Prostigmata",
+	"Pseudoscorpiones", "Ricinulei", "Scorpiones", "Solifugae",
+	"Uropygi", "", "", ""
+	);
+	protected $Amblypygi = array ("Phrynichidae", "Phrynidae", "", ""
+	);
 	protected $Araneae = array (
-	"Agelenidae", "Amaurobiidae", "Anapidae", "Anyphaenidae", 
-	"Araneidae", "Atypidae", "Clubionidae", "Corinnidae", 
-	"Ctenidae", "Ctenizidae", "Cybaeidae", "Cyrtaucheniidae", 
-	"Deinopidae", "Desidae", "Dictynidae", "Dysderidae", 
-	"Eresidae", "Filistatidae", "Gnaphosidae", "Hahniidae", 
-	"Hersiliidae", "Hexathelidae", "Leptonetidae", "Linyphiidae", 
-	"Liocranidae", "Lycosidae", "Mimetidae", "Miturgidae", 
-	"Mysmenidae", "Nemesiidae", "Nephilidae", "Nesticidae", 
-	"Oecobiidae", "Oonopidae", "Oxyopidae", "Palpimanidae", 
-	"Philodromidae", "Pholcidae", "Pimoidae", "Pisauridae", 
-	"Psechridae", "Salticidae", "Scytodidae", "Segestriidae", 
-	"Sicariidae", "Sparassidae", "Synaphridae", "Tetragnathidae", 
-	"Theraphosidae", "Theridiidae", "Theridiosomatidae", "Thomisidae", 
-	"Titanoecidae", "Uloboridae", "Zodariidae", "Zoridae", 
-	"Zoropsidae", "", "", "");
+	"Agelenidae", "Amaurobiidae", "Anapidae", "Anyphaenidae",
+	"Araneidae", "Atypidae", "Clubionidae", "Corinnidae",
+	"Ctenidae", "Ctenizidae", "Cybaeidae", "Cyrtaucheniidae",
+	"Deinopidae", "Desidae", "Dictynidae", "Dysderidae",
+	"Eresidae", "Filistatidae", "Gnaphosidae", "Hahniidae",
+	"Hersiliidae", "Hexathelidae", "Leptonetidae", "Linyphiidae",
+	"Liocranidae", "Lycosidae", "Mimetidae", "Miturgidae",
+	"Mysmenidae", "Nemesiidae", "Nephilidae", "Nesticidae",
+	"Oecobiidae", "Oonopidae", "Oxyopidae", "Palpimanidae",
+	"Philodromidae", "Pholcidae", "Pimoidae", "Pisauridae",
+	"Psechridae", "Salticidae", "Scytodidae", "Segestriidae",
+	"Sicariidae", "Sparassidae", "Synaphridae", "Tetragnathidae",
+	"Theraphosidae", "Theridiidae", "Theridiosomatidae", "Thomisidae",
+	"Titanoecidae", "Uloboridae", "Zodariidae", "Zoridae",
+	"Zoropsidae", "", "", ""
+	);
 	protected $Astigmata = array (
-	"Acaridae", "Chaetodactylidae", "Histiostomatidae", "Listrophoridae", 
-	"Psoroptidae", "Sarcoptidae", "Trouessartiidae", "");
-	protected $Ixodida = array ("Amblyommidae", "Argasidae", "Ixodidae", "");
+	"Acaridae", "Chaetodactylidae", "Histiostomatidae", "Listrophoridae",
+	"Psoroptidae", "Sarcoptidae", "Trouessartiidae", ""
+	);
+	protected $Ixodida = array ("Amblyommidae", "Argasidae", "Ixodidae", ""
+	);
 	protected $Mesostigmata = array (
-	"Dermanyssidae", "Macrochelidae", "Macronyssidae", "Metagynuridae", 
-	"Parasitidae", "Podocinidae", "Polyaspididae", "Sejidae", 
-	"Trematuridae", "Urodinychidae", "Uropodidae", "Varroidae", 
-	"Veigaiidae", "Zerconidae", "", "");
+	"Dermanyssidae", "Macrochelidae", "Macronyssidae", "Metagynuridae",
+	"Parasitidae", "Podocinidae", "Polyaspididae", "Sejidae",
+	"Trematuridae", "Urodinychidae", "Uropodidae", "Varroidae",
+	"Veigaiidae", "Zerconidae", "", ""
+	);
 	protected $Opiliones = array (
-	"Gonyleptidae", "Ischyropsalididae", "Ischyropsalididae", "Nemastomatidae", 
-	"Phalangiidae", "Phalangodidae", "Sabaconidae", "Sclerosomatidae", 
-	"Sironidae", "Travuniidae", "Trogulidae", "");
+	"Gonyleptidae", "Ischyropsalididae", "Ischyropsalididae", "Nemastomatidae",
+	"Phalangiidae", "Phalangodidae", "Sabaconidae", "Sclerosomatidae",
+	"Sironidae", "Travuniidae", "Trogulidae", ""
+	);
 	protected $Oribatida = array (
-	"Camisiidae", "Cymbaeremaeidae", "Damaeidae", "Euphthiracaridae", 
-	"Humerobatidae", "Liacaridae", "Metrioppiidae", "Nothridae", 
-	"Phenopelopidae", "", "", "");
+	"Camisiidae", "Cymbaeremaeidae", "Damaeidae", "Euphthiracaridae",
+	"Humerobatidae", "Liacaridae", "Metrioppiidae", "Nothridae",
+	"Phenopelopidae", "", "", ""
+	);
 	protected $Prostigmata = array (
-	"Anystidae", "Arrenuridae", "Bdellidae", "Calyptostomatidae", 
-	"Ereynetidae", "Eriophyidae", "Erythraeidae", "Eupodidae", 
-	"Eylaidae", "Hydrachnidae", "Myobiidae", "Penthaleidae", 
-	"Pterygosomatidae", "Tetranychidae", "Trombiculidae", "Trombidiidae", 
-	"Unionicolidae", "", "", "");
+	"Anystidae", "Arrenuridae", "Bdellidae", "Calyptostomatidae",
+	"Ereynetidae", "Eriophyidae", "Erythraeidae", "Eupodidae",
+	"Eylaidae", "Hydrachnidae", "Myobiidae", "Penthaleidae",
+	"Pterygosomatidae", "Tetranychidae", "Trombiculidae", "Trombidiidae",
+	"Unionicolidae", "", "", ""
+	);
 	protected $Pseudoscorpiones = array (
-	"Cheiridiidae", "Cheliferidae", "Chernetidae", "Chthoniidae", 
-	"Neobisiidae", "", "", "");
+	"Cheiridiidae", "Cheliferidae", "Chernetidae", "Chthoniidae",
+	"Neobisiidae", "", "", ""
+	);
 	protected $Ricinulei = array ("Ricinoididae", "", "", "");
 	protected $Scorpiones = array (
-	"Buthidae", "Chactidae", "Euscorpiidae", "Iuridae", 
+	"Buthidae", "Chactidae", "Euscorpiidae", "Iuridae",
 	"Scorpionidae", "Troglotayosicidae", "", "");
 	protected $Solifugae = array ("Daesiidae", "Galeodidae", "", "");
 	protected $Uropygi = array ("Thelyphonidae", "", "", "");
@@ -291,41 +324,41 @@ class aiguillage
 	protected $Chilopoda = array (
 	"Geophilomorpha", "Lithobiomorpha", "Scolopendromorpha", "Scutigeromorpha");
 	protected $Geophilomorpha = array (
-	"Dignathodontidae", "Geophilidae", "Himantariidae", "Linotaeniidae", 
+	"Dignathodontidae", "Geophilidae", "Himantariidae", "Linotaeniidae",
 	"Schendylidae", "", "", "");
 	protected $Lithobiomorpha = array ("Henicopidae", "Lithobiidae", "", "");
 	protected $Scolopendromorpha = array ("Cryptopidae", "Scolopendridae", "", "");
 	protected $Scutigeromorpha = array ("Scutigeridae", "", "", "");
 
 	protected $Crustacea = array (
-	"Amphipoda", "Branchiopoda", "Decapoda", "Isopoda", 
+	"Amphipoda", "Branchiopoda", "Decapoda", "Isopoda",
 	"Maxillopoda", "Mysida", "Ostracoda", /* "Sessilia",*/ "Syncarida");
 	protected $Amphipoda = array (
-	"Caprellidae", "Corophidae", "Gammaridae", "Hyperiidae", 
+	"Caprellidae", "Corophidae", "Gammaridae", "Hyperiidae",
 	"Niphargidae", "Talitridae", "", "");
 	protected $Branchiopoda = array (
-	"Artemiidae", "Branchipodidae", "Chirocephalidae", "Daphniidae", 
+	"Artemiidae", "Branchipodidae", "Chirocephalidae", "Daphniidae",
 	"Leptodoridae", "Triopsidae", "", "");
 	protected $Decapoda = array (
-	"Alpheidae", "Astacidae", "Atelecyclidae", "Atyidae", 
-	"Cambaridae", "Cancridae", "Carcinidae", "Coenobitidae", 
-	"Crangonidae", "Diogenidae", "Epialtidae", "Galatheidae", 
-	"Gecarcinidae", "Grapsidae", "Hippolytidae", "Hymenosomatidae", 
-	"Inachidae", "Majidae", "Nephropidae", "Ocypodidae", 
-	"Paguridae", "Palaemonidae", "Panopeidae", "Pilumnidae", 
-	"Polybiidae", "Porcellanidae", "Raninidae", "Scyllaridae", 
+	"Alpheidae", "Astacidae", "Atelecyclidae", "Atyidae",
+	"Cambaridae", "Cancridae", "Carcinidae", "Coenobitidae",
+	"Crangonidae", "Diogenidae", "Epialtidae", "Galatheidae",
+	"Gecarcinidae", "Grapsidae", "Hippolytidae", "Hymenosomatidae",
+	"Inachidae", "Majidae", "Nephropidae", "Ocypodidae",
+	"Paguridae", "Palaemonidae", "Panopeidae", "Pilumnidae",
+	"Polybiidae", "Porcellanidae", "Raninidae", "Scyllaridae",
 	"Upogebiidae", "Varunidae", "Xanthidae", "");
 	protected $Isopoda = array (
-	"Agnaridae", "Arcturidae", "Armadillidae", "Armadillidiidae", 
-	"Asellidae", "Balloniscidae", "Bopyridae", "Cirolanidae", 
-	"Cylisticidae", "Cymothoidae", "Idoteidae", "Janiridae", 
-	"Ligiidae", "Oniscidae", "Philosciidae", "Platyarthridae", 
-	"Porcellionidae", "Scyphacidae", "Sphaeromatidae", "Stenasellidae", 
-	"Stenoniscidae", "Tendosphaeridae", "Trachelipodidae", "Trichoniscidae", 
+	"Agnaridae", "Arcturidae", "Armadillidae", "Armadillidiidae",
+	"Asellidae", "Balloniscidae", "Bopyridae", "Cirolanidae",
+	"Cylisticidae", "Cymothoidae", "Idoteidae", "Janiridae",
+	"Ligiidae", "Oniscidae", "Philosciidae", "Platyarthridae",
+	"Porcellionidae", "Scyphacidae", "Sphaeromatidae", "Stenasellidae",
+	"Stenoniscidae", "Tendosphaeridae", "Trachelipodidae", "Trichoniscidae",
 	"Tylidae", "", "", "");
 	protected $Maxillopoda = array (
-	"Austrobalanidae", "Balanidae", "Calanticidae", "Chthamalidae", 
-	"Cyclopidae", "Pollicipedidae", "Porcellidiidae", "Sacculinidae", 
+	"Austrobalanidae", "Balanidae", "Calanticidae", "Chthamalidae",
+	"Cyclopidae", "Pollicipedidae", "Porcellidiidae", "Sacculinidae",
 	"Verrucidae", "", "", "");
 	protected $Mysida = array ("Mysidae", "", "", "");
 	protected $Ostracoda = array ("Cyprididae", "", "", "");
@@ -333,13 +366,13 @@ class aiguillage
 	protected $Syncarida = array ("Bathynellidae", "", "", "");
 
 	protected $Diplopoda = array (
-	"Callipodida", "Chordeumatida", "Glomerida", "Julida", 
-	/*"Juliformia",*/ 
-	"Polydesmida", "Polyxenida", "Polyzoniida", /*"Sphaerotheriida",*/ "Spirobolida", 
+	"Callipodida", "Chordeumatida", "Glomerida", "Julida",
+	/*"Juliformia",*/
+	"Polydesmida", "Polyxenida", "Polyzoniida", /*"Sphaerotheriida",*/ "Spirobolida",
 	"Spirostreptida", "", "", "");
 	protected $Callipodida = array ("Callipodidae", "", "", "");
 	protected $Chordeumatida = array (
-	"Anthogonidae", "Brachychaeteumatidae", "Chamaesomatidae", "Chordeumatidae", 
+	"Anthogonidae", "Brachychaeteumatidae", "Chamaesomatidae", "Chordeumatidae",
 	"Craspedosomatidae", "Haaseidae", "", "");
 	protected $Glomerida = array ("Glomeridae", "Protoglomeridae", "", "");
 	protected $Julida = array ("Blaniulidae", "Julidae", "Nemasomatidae", "");
@@ -353,9 +386,9 @@ class aiguillage
 
 	protected $Entognatha = array ("Collembola", "Diplura", "", "");
 	protected $Collembola = array (
-	"Bourletiellidae", "Brachystomellidae", "Dicyrtomidae", "Entomobryidae", 
-	"Hypogastruridae", "Isotomidae", "Katiannidae", "Neanuridae", 
-	"Onychiuridae", "Poduridae", "Sminthuridae", "Sminthurididae", 
+	"Bourletiellidae", "Brachystomellidae", "Dicyrtomidae", "Entomobryidae",
+	"Hypogastruridae", "Isotomidae", "Katiannidae", "Neanuridae",
+	"Onychiuridae", "Poduridae", "Sminthuridae", "Sminthurididae",
 	"Tomoceridae", "", "", "");
 	protected $Diplura = array ("Campodeidae", "", "", "");
 

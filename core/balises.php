@@ -75,8 +75,7 @@ class balises
 		$titre = $this->user->lang['TBALISAGE'];
 		$data = $this->lecture ($fichier);
 		$abc_links = "Dans la table ci-dessous, cliquez sur les liens pour afficher la liste des sujets possédant la balise sélectionnée.";
-		
-		
+
 		page_header($titre);
 		$this->template->set_filenames (array(
 			'body' => 'index.html',
@@ -93,11 +92,12 @@ class balises
 	private function lecture ($fichier)
 	{
 		$f = fopen ($fichier, "r");
-		if ($f) {
+		if ($f)
+		{
 			$data = fread ($f, filesize($fichier));
 			fclose ($f);
 			return $data;
-			}
+		}
 		return false;
 	}
 
