@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Balisage
-* @copyright (c) 2016 LMDI - Pierre Duhem
+* @copyright (c) 2016-2019 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -19,17 +19,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
-	/** @var \phpbb\cache\service */
+
 	protected $cache;
-	/* @var \phpbb\user */
-	protected $user;
-	/* @var \phpbb\db\driver\driver_interface */
+	protected $language;
 	protected $db;
-	/* @var \phpbb\template\template */
 	protected $template;
-	/* @var \phpbb\config\config */
 	protected $config;
-	/* @var \phpbb\controller\helper */
 	protected $helper;
 	protected $glossary_table;
 
@@ -39,7 +34,7 @@ class listener implements EventSubscriberInterface
 		\phpbb\controller\helper $helper,
 		\phpbb\template\template $template,
 		\phpbb\cache\service $cache,
-		\phpbb\user $user,
+		\phpbb\language\language $language,
 		$glossary_table
 		)
 	{
@@ -48,43 +43,29 @@ class listener implements EventSubscriberInterface
 		$this->helper = $helper;
 		$this->template = $template;
 		$this->cache = $cache;
-		$this->user = $user;
+		$this->language = $language;
 		$this->glossary_table = $glossary_table;
 	}
 
 	static public function getSubscribedEvents ()
 	{
 		return array(
-		'core.user_setup'				=> 'load_language_on_setup',
+		'core.user_setup_after'			=> 'load_language_on_setup',
 		'core.page_header'				=> 'build_url',
 		);
 	}
 
 	public function load_language_on_setup($event)
 	{
-		$lang_set_ext = $event['lang_set_ext'];
-		$lang_set_ext[] = array(
-			'ext_name' => 'lmdi/index',
-			'lang_set' => 'index',
-			);
-		$event['lang_set_ext'] = $lang_set_ext;
+		$this->language->add_lang('index', 'lmdi/index');
 	}
 
 	public function build_url ($event)
 	{
-		if (version_compare ($this->config['version'], '3.2.x', '<'))
-		{
-			$s320 = 0;
-		}
-		else
-		{
-			$s320 = 1;
-		}
 		$this->template->assign_vars(array(
 			'U_BALISAGE'	=> $this->helper->route('lmdi_index_controller', array('mode' => 'aiguillage')),
-			'L_BALISAGE'	=> $this->user->lang['LBALISAGE'],
-			'T_BALISAGE'	=> $this->user->lang['TBALISAGE'],
-			'S_320'		=> $s320,
+			'L_BALISAGE'	=> $this->language->lang('LBALISAGE'),
+			'T_BALISAGE'	=> $this->language->lang('TBALISAGE'),
 		));
 	}
 

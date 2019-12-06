@@ -2,27 +2,21 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016 LMDI - Pierre Duhem
+* @copyright (c) 2016-2019 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* Code commandant l'affichage d'une famille
 *
 */
 namespace lmdi\index\core;
 
 class balises
 {
-	/** @var \phpbb\template\template */
 	protected $template;
-	/** @var \phpbb\user */
-	protected $user;
-	/** @var \phpbb\db\driver\driver_interface */
+	protected $language;
 	protected $db;
-	/** @var \phpbb\auth\auth */
 	protected $auth;
-	/** @var \phpbb\extension\manager "Extension Manager" */
 	protected $ext_manager;
-	/** @var \phpbb\path_helper */
 	protected $path_helper;
-	/** @var \lmdi\gloss\core\helper */
 	protected $gloss_helper;
 	// Strings
 	protected $phpEx;
@@ -38,7 +32,7 @@ class balises
 	*/
 	public function __construct(
 		\phpbb\template\template $template,
-		\phpbb\user $user,
+		\phpbb\language\language $language,
 		\phpbb\db\driver\driver_interface $db,
 		\phpbb\config\config $config,
 		\phpbb\controller\helper $helper,
@@ -51,7 +45,7 @@ class balises
 		$table_rh_t)
 	{
 		$this->template 		= $template;
-		$this->user 			= $user;
+		$this->language 		= $language;
 		$this->db 			= $db;
 		$this->config 			= $config;
 		$this->helper			= $helper;
@@ -71,34 +65,48 @@ class balises
 
 	function main($fam)
 	{
-		$fichier = $pict = $this->ext_path . "data/" . $fam . '.data';
-		$titre = $this->user->lang['TBALISAGE'];
+		// Les fichiers sont produits par le script balfamiilles.php.
+		$fichier = $this->phpbb_root_path . "/store/lmdi/index/" . $fam . '.data';
+		$titre = $this->language->lang('TBALISAGE');
 		$data = $this->lecture ($fichier);
 		$abc_links = "Dans la table ci-dessous, cliquez sur les liens pour afficher la liste des sujets possédant la balise sélectionnée.";
+		if (!$data)
+		{
+			$titre = "Pas de balises de rang générique ou spécifique pour la famille <a href=\"../app.php/tag/$fam\">$fam</a>.";
+			$abc_links = "";
+			$data = "";
+		}
 
 		page_header($titre);
 		$this->template->set_filenames (array(
 			'body' => 'index.html',
 		));
 		$this->template->assign_vars(array(
+			'U_CANONICAL'	=> generate_board_url() . '/' . append_sid("app.{$this->phpEx}/index", "mode=display&amp;fam=$fam"),
 			'TITLE'		=> $titre,
 			'ABC'		=> $abc_links,
 			'CORPS'		=> $data,
 		));
 
 		page_footer();
-	}
+	}	// main
 
 	private function lecture ($fichier)
 	{
-		$f = fopen ($fichier, "r");
-		if ($f)
+		if (file_exists ($fichier))
 		{
-			$data = fread ($f, filesize($fichier));
-			fclose ($f);
-			return $data;
+			$f = fopen ($fichier, "r");
+			if ($f)
+			{
+				$data = fread ($f, filesize($fichier));
+				fclose ($f);
+				return $data;
+			}
+			else
+				return false;
 		}
-		return false;
-	}
+		else
+			return false;
+	}	// lecture
 
 }

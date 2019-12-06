@@ -1,26 +1,23 @@
 /* index.css */
 /* Feuille de style pour les tables du glossaire */
 /* Stylesheet for the glossary tables */
-/* lmdi32 */
+/* lmdi33 */
 /* (c) Pierre Duhem 2015-2019 */
 
 table.deg {
-	border-collapse:collapse;
-	border:1px solid #576357;
-	width:90%;
-	padding:3px;
-	margin-left:auto;
-	margin-right:auto;
-	}
+    border-collapse:collapse;
+    border:1px solid #576357;
+    width:90%;
+    padding:3px;
+    margin-left:auto;
+    margin-right:auto;
+    }
 tr.deg, th.deg, td.deg {
-	border:1px solid #576357;
-	padding:3px 5px;
-	color:#576357;
-	}
-tr.tit {
-	background-color:#576357;
-	color:#ffffff;
-	}
+    border:1px solid #576357;
+    padding:3px 5px;
+    color:#576357;
+    }
+    
 /*	Série des titres */   
 th.deg0 {
 	border:1px solid #576357;
@@ -49,21 +46,8 @@ th.deg2 {
 	font-weight: bold;
 	font-size: 125%;
 	}
-	
-/*	Série des cases de données */
-.deg0 a:link,
-.deg0 a:hover,
-.deg0 a:visited,
-.deg0 a:active{
-	color: #987e40;
-	}
-.deg1  a:link,
-.deg1 a:hover,
-.deg1 a:visited,
-.deg1 a:active{
-	color: #FFFFFF;
-	}
-
+    
+/*	Série des cases de données */   
 /*  Alignement à gauche */
 td.deg0 {
 	border:1px solid #576357;
@@ -74,23 +58,6 @@ td.deg0 {
 	}
 /*  Alignement centré */
 td.deg1 {
-	border:1px solid #576357;
-	text-align:center;
-	padding:3px 5px;
-	color:#FFFFFF;
-	background-color: #034a14;
-	font-size: 125%;
-	}
-td.deg3 {
-	border:1px solid #576357;
-	text-align:center;
-	padding:3px 5px;
-	color:#FFFFFF;
-	background-color: #2da148;
-	font-size: 125%;
-	}
-/*  Alignement centré */
-td.deg4 {
 	border:1px solid #576357;
 	text-align:center;
 	padding:3px 5px;
@@ -125,8 +92,13 @@ td.deg2 {
 	font-size: 300%;
 	font-weight: bold;
 	}
+.subtitle {
+	text-align: right;
+	font-weight: bold;
+	font-size : 200%;
+	}
 .cap  {
-	padding: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5x;
 	color: #576357;
 	font-size: 200%;
 	font-weight: bold;

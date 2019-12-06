@@ -1,7 +1,5 @@
 /* index.css */
-/* Feuille de style pour les tables du glossaire */
-/* Stylesheet for the glossary tables */
-/* lmdi32 */
+/* lmdi33 */
 /* (c) Pierre Duhem 2015-2019 */
 
 table.deg {
@@ -122,14 +120,42 @@ td.deg2 {
 .glossa  {
 	padding: 25px 0 5px 0;
 	color: #576357;
-	font-size: 300%;
+	font-size: 200%;
+	font-weight: bold;
+	}
+.glossb {
+	padding: 25px 0 5px 0;
+	color: #4e6fa6;
+	font-size: 400%;
+	font-weight: bold;
+	}
+.subtitle {
+	text-align: right;
+	font-weight: bold;
+	font-size : 200%;
+	}
+.text {
+	padding: 8px;
+	color: #576357;
+	font-size: 1.5em;
+	line-height: 1.4em;
+	font-weight: bold;
+	}
+.text2 {
+	padding: 5px;
+	color: #576357;
+	font-size: 1.1em;
+	line-height: 1.3em;
 	font-weight: bold;
 	}
 .cap  {
-	padding: 5px 5px 5px 5px;
+	padding: 2px;
 	color: #576357;
-	font-size: 200%;
+	font-size: 0.6em;
 	font-weight: bold;
+	}
+.cap0 {
+	color: #cf6e6e;
 	}
 .capb  {
 	margin-left: 100px;
@@ -138,7 +164,7 @@ td.deg2 {
 	font-size: 200%;
 	}
 .capc  {
-	padding: 5px 5px 5px 5x;
+	padding: 5px;
 	color: #98b8a3;
 	font-size: 200%;
 	font-weight: bold;

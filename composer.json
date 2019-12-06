@@ -1,10 +1,10 @@
 {
 	"name": "lmdi/index",
 	"type": "phpbb-extension",
-	"description": "Tag Indexing for phpBB 3.1",
+	"description": "Tag Indexing for phpBB 3.2/3.3",
 	"homepage": "http://www.insecte.org/ext/readme.txt",
-	"version": "1.0.8",
-	"time": "2017-3-3",
+	"version": "1.1.1",
+	"time": "2019-12-6",
 	"license": "GPL-2.0",
 	"authors": 
 	[	{
@@ -29,7 +29,7 @@
 	"extra": {
 		"display-name": "LMDI Indexation",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-RC2,<3.3.0@dev"
+			"phpbb/phpbb": ">=3.1.0-RC2,<=3.3.0"
 		}
 	}
 }

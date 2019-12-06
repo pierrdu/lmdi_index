@@ -2,7 +2,7 @@
 /* Feuille de style pour les tables du glossaire */
 /* Stylesheet for the glossary tables */
 /* Prosilver */
-/* (c) Pierre Duhem 2015-2016 */
+/* (c) Pierre Duhem 2015-2019 */
 
 table.deg {
 	border-collapse:collapse;
@@ -97,6 +97,11 @@ td.deg2 {
 	color: #4e6fa6;
 	font-size: 400%;
 	font-weight: bold;
+	}
+.subtitle {
+	text-align: right;
+	font-weight: bold;
+	font-size : 200%;
 	}
 .cap  {
 	padding: 5px 5px 5px 5px;

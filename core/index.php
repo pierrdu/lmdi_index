@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016 LMDI - Pierre Duhem
+* @copyright (c) 2016-2019 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -10,25 +10,19 @@ namespace lmdi\index\core;
 
 class index
 {
-	/** @var \phpbb\template\template */
 	protected $template;
-	/** @var \phpbb\user */
 	protected $user;
-	/** @var \phpbb\db\driver\driver_interface */
+	protected $language;
 	protected $db;
-	/** @var \phpbb\auth\auth */
+	protected $config;
 	protected $auth;
-	/** @var \phpbb\extension\manager "Extension Manager" */
 	protected $ext_manager;
-	/** @var \phpbb\path_helper */
 	protected $path_helper;
-	/** @var \lmdi\gloss\core\helper */
-	protected $gloss_helper;
-	// Strings
 	protected $phpEx;
 	protected $phpbb_root_path;
 	protected $table_rh_tt;
 	protected $table_rh_t;
+
 	protected $ext_path;
 	protected $ext_path_web;
 
@@ -39,9 +33,9 @@ class index
 	public function __construct(
 		\phpbb\template\template $template,
 		\phpbb\user $user,
+		\phpbb\language\language $language,
 		\phpbb\db\driver\driver_interface $db,
 		\phpbb\config\config $config,
-		\phpbb\controller\helper $helper,
 		\phpbb\auth\auth $auth,
 		\phpbb\extension\manager $ext_manager,
 		\phpbb\path_helper $path_helper,
@@ -52,9 +46,9 @@ class index
 	{
 		$this->template 		= $template;
 		$this->user 			= $user;
+		$this->language		= $language;
 		$this->db 			= $db;
 		$this->config 			= $config;
-		$this->helper			= $helper;
 		$this->auth			= $auth;
 		$this->ext_manager	 	= $ext_manager;
 		$this->path_helper	 	= $path_helper;
@@ -108,13 +102,13 @@ class index
 		$abc_links .= '</p>';
 
 		// Contents table production
-		$str_balise  = $this->user->lang['INDEX_BALISE'];
-		$str_nombre  = $this->user->lang['INDEX_NB_BAL'];
-		$str_numero  = $this->user->lang['INDEX_NUMERO'];
-		$str_code    = $this->user->lang['INDEX_CODE'];
-		$str_action  = $this->user->lang['INDEX_ACTION'];
-		$str_delete  = $this->user->lang['INDEX_DELETE'];
-		$str_edit    = $this->user->lang['INDEX_EDIT'];
+		$str_balise  = $this->language->lang('INDEX_BALISE');
+		$str_nombre  = $this->language->lang('INDEX_NB_BAL');
+		$str_numero  = $this->language->lang('INDEX_NUMERO');
+		$str_code    = $this->language->lang('INDEX_CODE');
+		$str_action  = $this->language->lang('INDEX_ACTION');
+		$str_delete  = $this->language->lang('INDEX_DELETE');
+		$str_edit    = $this->language->lang('INDEX_EDIT');
 
 		$corps  = '<table class="deg"><tr class="deg">';
 		$corps .= '<th class="deg0">' . $str_numero . '</th>';
@@ -125,10 +119,6 @@ class index
 
 		$cpt  = 0;
 		$top = $this->ext_path_web . "/styles/top.gif";
-		// SELECT * FROM `phpbb3_rh_topictags_tag` WHERE LEFT(`phpbb3_rh_topictags_tag`.`tag`, 1) = 'C' ORDER BY tag
-		// SELECT * FROM `phpbb3_rh_topictags_tag` WHERE LEFT(`phpbb3_rh_topictags_tag`.`tag`, 1) NOT BETWEEN 'A' AND 'Z' ORDER BY tag
-		// Attention, cela fait disparaître les minuscules, parce que la colonne tag est codée
-		// en utf8_bin
 		if ($cap == $autres)
 		{
 			$sql = "SELECT * 
@@ -179,17 +169,22 @@ class index
 		{
 			$autorisation = 0;
 		}
+		$remp = $this->language->lang('REMP_PAGE');
+		$url_remp = append_sid($this->phpbb_root_path . 'app.' . $this->phpEx . "/index?mode=remp");
+		$str_remp = sprintf ($this->language->lang('URL_REMP_PAGE'), $remp, $url_remp);
 
-		$titre = $this->user->lang['TBALISAGE'];
+		$titre = $this->language->lang('TBALISAGE');
 		page_header($titre);
 		$this->template->set_filenames (array(
 			'body' => 'index.html',
 		));
 		$this->template->assign_vars(array(
 			'TITLE'		=> $titre,
+			'REMP'		=> $str_remp,
 			'ABC'		=> $abc_links,
 			'CORPS'		=> $corps,
 			'S_AUTOR'		=> $autorisation,
+			'S_REMP'		=> 1,
 		));
 
 		page_footer();

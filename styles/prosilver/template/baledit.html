@@ -1,3 +1,4 @@
+<!-- INCLUDECSS index.css -->
 <!-- INCLUDE overall_header.html -->
 
 <h2>{TITLE}</h2>
@@ -7,11 +8,10 @@
 	<span class="corners-top"><span></span></span>
 		<div class="panel">
 		<div class="inner">
-		<p>{MESSAGE}</p>
 		<div class="content">
 		<form id="edit_form" method="post" action="{U_ACTION}">
 		<fieldset class="fields1">
-			<legend>{L_LMDI_CONFIG_TAGS}</legend>
+			<legend class="text2">{L_LMDI_CONFIG_TAGS}</legend>
 			<dl>
 				<dt><label for="new_tag_name">{L_LMDI_NEW_TAG_NAME}{L_COLON}</label></dt>
 				<dd><input type="text" name="tag_name" size="20" value="{TAG_NAME}"/></dd>

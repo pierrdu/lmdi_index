@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016 LMDI - Pierre Duhem
+* @copyright (c) 2016-2019 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -11,21 +11,19 @@ namespace lmdi\index\controller;
 
 class main
 {
-	protected $index;
+	protected $edition;
 	protected $baledit;
 	protected $aiguillage;
 	protected $balises;
-	/** @var \phpbb\template\template */
+	protected $balremp;
+	protected $ordre;
+	protected $famille;
 	protected $template;
-	/** @var \phpbb\user */
 	protected $user;
-	/** @var \phpbb\request\request */
+	protected $language;
 	protected $request;
-	/** @var \phpbb\controller\helper */
 	protected $helper;
-	/** @var string phpBB root path */
 	protected $phpbb_root_path;
-	/** @var string phpEx */
 	protected $phpEx;
 
 	/**
@@ -33,23 +31,31 @@ class main
 	*
 	*/
 	public function __construct(
-		\lmdi\index\core\index $index,
+		\lmdi\index\core\edition $edition,
 		\lmdi\index\core\baledit $baledit,
 		\lmdi\index\core\aiguillage $aiguillage,
 		\lmdi\index\core\balises $balises,
+		\lmdi\index\core\balremp $balremp,
+		\lmdi\index\core\ordre $ordre,
+		\lmdi\index\core\famille $famille,
 		\phpbb\template\template $template,
 		\phpbb\user $user,
+		\phpbb\language\language $language,
 		\phpbb\request\request $request,
 		\phpbb\controller\helper $helper,
 		$phpbb_root_path,
 		$phpEx)
 	{
-		$this->index		 	= $index;
+		$this->edition		 	= $edition;
 		$this->baledit		 	= $baledit;
 		$this->aiguillage		= $aiguillage;
 		$this->balises		 	= $balises;
+		$this->balremp			= $balremp;
+		$this->ordre			= $ordre;
+		$this->famille			= $famille;
 		$this->template 		= $template;
 		$this->user 			= $user;
+		$this->language		= $language;
 		$this->request 		= $request;
 		$this->helper 			= $helper;
 		$this->phpbb_root_path 	= $phpbb_root_path;
@@ -71,38 +77,45 @@ class main
 
 		// Variables
 		$mode   = $this->request->variable('mode', '');
-		$action = $this->request->variable('action', '');
-		$code   = $this->request->variable('code', '-1');
-		$cap    = $this->request->variable('cap', 'A');
-		$fam    = $this->request->variable('fam', '');
-		$id     = (int) $this->request->variable('id', 0);
-
+		
 		// String loading
-		$this->user->add_lang_ext('lmdi/index', 'index');
+		$this->language->add_lang('index', 'lmdi/index');
 
 		// Add the base entry into the breadcrump at top
 		$this->template->assign_block_vars('navlinks', array(
 			'U_VIEW_FORUM'	=> $this->helper->route('lmdi_index_controller'),
-			'FORUM_NAME'	=> $this->user->lang['LBALISAGE'],
+			'FORUM_NAME'	=> $this->language->lang('LBALISAGE'),
 		));
 
 		switch ($mode)
 		{
+			// Partie d'édition
 			case 'ed':
 			case 'save':
 			case 'del':
 			case 'destroy':
+				$id = (int) $this->request->variable('id', 0);
 				$this->baledit->main ($id, $mode);
-			break;
-			case 'display' :
-				$this->balises->main ($fam);
-			break;
-			case 'index':
-				$this->index->main ($cap);
-			break;
+				break;
+			case 'edition':
+				$cap = $this->request->variable('cap', 'A');
+				$this->edition->main ($cap);
+				break;
+			case 'remp':
+				$this->balremp->main ($mode);
+				break;
+			// Partie d'affichage
+			case 'famille' :
+				$fam = $this->request->variable('fam', '', true);
+				$this->famille->main ($fam);
+				break;
+			case 'ordre':
+				$ord = $this->request->variable('ord', '', true);
+				$this->ordre->main ($ord);
+				break;
 			default:
 				$this->aiguillage->main ();
-			break;
+				break;
 		}
 	}
 }
