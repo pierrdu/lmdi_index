@@ -1,2 +1,2 @@
-xcopy *.* /s /m g:\git\lmdi_indexation
+xcopy *.* /u /s g:\git\lmdi_index
 pause
