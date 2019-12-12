@@ -1,29 +1,29 @@
-<!-- INCLUDECSS index.css -->
-<!-- INCLUDE overall_header.html -->
+{% INCLUDECSS 'index.css' %}
+{% INCLUDE 'overall_header.html' %}
 
-<h2>{TITLE}</h2>
+<h2>{{ TITLE }}</h2>
 
 <div class="panel">
 	<div class="inner">
 	<span class="corners-top"><span></span></span>
 		<div class="content">
-		<!-- IF S_AUTOR --><div class="subtitle"><a href="{EDITOR}">{L_INDEX_EDIT_PAGES}</a></div><!-- ENDIF -->
-		<div class="glossa">{L_INDEX_DISPLAY_PAGES}</div>
-		<div class="text">{L_STATIC_PAGE_EXPLAIN}</div>
+		{% if S_AUTOR %}<div class="subtitle"><a href="{{ EDITOR }}">{{ lang('INDEX_EDIT_PAGES') }}</a></div>{% endif %}
+		<div class="glossa">{{ lang('INDEX_DISPLAY_PAGES') }}</div>
+		<div class="text">{{ lang('STATIC_PAGE_EXPLAIN') }}</div>
 		<table class="deg" cellspacing="1">
 			<tbody>
-			<!-- BEGIN gordres -->
-				<!-- IF gordres.S_CLASSE -->
-					<tr class="deg"><td class="deg1" colspan="4">{gordres.ORDRE1}</td></tr>
-				<!-- ELSE -->
+			{% for gordres in loops.gordres %}
+				{% if gordres.S_CLASSE %}
+					<tr class="deg"><td class="deg1" colspan="4">{{ gordres.ORDRE1 }}</td></tr>
+				{% else %}
 					<tr class="deg">
-					<td class="deg0"><a href="{gordres.URL1}">{gordres.ORDRE1}</a></td>
-					<td class="deg0"><a href="{gordres.URL2}">{gordres.ORDRE2}</a></td>
-					<td class="deg0"><a href="{gordres.URL3}">{gordres.ORDRE3}</a></td>
-					<td class="deg0"><a href="{gordres.URL4}">{gordres.ORDRE4}</a></td>
+					<td class="deg0"><a href="{{ gordres.URL1 }}">{{ gordres.ORDRE1 }}</a></td>
+					<td class="deg0"><a href="{{ gordres.URL2 }}">{{ gordres.ORDRE2 }}</a></td>
+					<td class="deg0"><a href="{{ gordres.URL3 }}">{{ gordres.ORDRE3 }}</a></td>
+					<td class="deg0"><a href="{{ gordres.URL4 }}">{{ gordres.ORDRE4 }}</a></td>
 					</tr>
-				<!-- ENDIF -->
-			<!-- END gordres -->
+				{% endif %}
+			{% endfor %}
 			</tbody>
 			</table>
 		</div>
@@ -31,4 +31,4 @@
 	</div>
 </div>
 
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}

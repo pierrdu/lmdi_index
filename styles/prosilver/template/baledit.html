@@ -1,7 +1,7 @@
-<!-- INCLUDECSS index.css -->
-<!-- INCLUDE overall_header.html -->
+{% INCLUDECSS 'index.css' %}
+{% INCLUDE 'overall_header.html' %}
 
-<h2>{TITLE}</h2>
+<h2>{{ TITLE }}</h2>
 
 <div class="panel">
    <div class="inner">
@@ -9,26 +9,26 @@
 		<div class="panel">
 		<div class="inner">
 		<div class="content">
-		<form id="edit_form" method="post" action="{U_ACTION}">
+		<form id="edit_form" method="post" action="{{ U_ACTION }}">
 		<fieldset class="fields1">
-			<legend class="text2">{L_LMDI_CONFIG_TAGS}</legend>
+			<legend class="text2">{{ lang('LMDI_CONFIG_TAGS') }}</legend>
 			<dl>
-				<dt><label for="new_tag_name">{L_LMDI_NEW_TAG_NAME}{L_COLON}</label></dt>
-				<dd><input type="text" name="tag_name" size="20" value="{TAG_NAME}"/></dd>
+				<dt><label for="new_tag_name">{{ lang('LMDI_NEW_TAG_NAME') }}{{ lang('COLON') }}</label></dt>
+				<dd><input type="text" name="tag_name" size="20" value="{{ TAG_NAME }}"/></dd>
 			</dl>
 			<dl>
 				<dt>&nbsp;</dt>
-				<dt><input type="hidden" name="tag_code" value="{TAG_CODE}"/>
-				<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
-				<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+				<dt><input type="hidden" name="tag_code" value="{{ TAG_CODE }}"/>
+				<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+				<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
 				</dt>
 			</dl>
 		</fieldset>
-	{S_FORM_TOKEN}
+	{{ S_FORM_TOKEN }}
 	</form>
 	</div></div></div>
 	<span class="corners-bottom"><span></span></span>
    </div>
 </div>
 
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}

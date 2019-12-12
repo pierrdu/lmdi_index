@@ -1,43 +1,43 @@
-<!-- INCLUDECSS index.css -->
-<!-- INCLUDE overall_header.html -->
+{% INCLUDECSS 'index.css' %}
+{% INCLUDE 'overall_header.html' %}
 
-<h2>{TITLE}</h2>
+<h2>{{ TITLE }}</h2>
 
 <div class="panel">
 	<div class="inner">
 	<span class="corners-top"><span></span></span>
 	<div class="panel">
-	<h2>{L_REMP_PAGE}</h2>
+	<h2>{{ lang('REMP_PAGE') }}</h2>
 	<div class="inner">
 	<div class="content">
-		<form id="tag_remp" method="post" action="{U_ACTION}">
+		<form id="tag_remp" method="post" action="{{ U_ACTION }}">
 		<fieldset>
 			<dl>
-				<dt><label>{L_GENUS_SEARCH}{L_COLON}</label><br />
-				<span>{L_GENUS_SEARCH_EXPLAIN}</span></dt>
+				<dt><label>{{ lang('GENUS_SEARCH') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('GENUS_SEARCH_EXPLAIN') }}</span></dt>
 				<dd><input type="text" name="ogenus" id="ogenus" size="40"/></dd>
 			</dl>
 			<dl>
-				<dt><label>{L_GENUS_REMP}{L_COLON}</label><br />
-				<span>{L_GENUS_REMP_EXPLAIN}</span></dt>
+				<dt><label>{{ lang('GENUS_REMP') }}{{ lang('COLON') }}</label><br />
+				<span>{{ lang('GENUS_REMP_EXPLAIN') }}</span></dt>
 				<dd><input type="text" name="dgenus" id="dgenus" size="40"/></dd>
 			</dl>
 			<dl>
 				<dt>&nbsp;</dt>
-				<dt><input type="hidden" name="tag_code" value="{TAG_CODE}"/>
-				<dt><input type="hidden" name="tag_name" value="{TAG_NAME}"/>
-				<input class="button1" type="submit" id="remp" name="remp" value="{L_SUBMIT}" />
+				<dt><input type="hidden" name="tag_code" value="{{ TAG_CODE }}"/>
+				<dt><input type="hidden" name="tag_name" value="{{ TAG_NAME }}"/>
+				<input class="button1" type="submit" id="remp" name="remp" value="{{ lang('SUBMIT') }}" />
 				</dt>
 			</dl>
 		</fieldset>
-		{S_FORM_TOKEN}
+		{{ S_FORM_TOKEN }}
 		</form>
 	</div>
-	<p>{MESSAGE}</p>
-	<p>{RESULT}</p>
+	<p>{{ MESSAGE }}</p>
+	<p>{{ RESULT }}</p>
 	</div></div>
 	<span class="corners-bottom"><span></span></span>
 	</div>
 </div>
 
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}
