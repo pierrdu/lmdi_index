@@ -110,7 +110,7 @@ class edition
 		{
 			if (!$cpteur)
 			{
-				$anchor = "<span id='$l'></span>";
+				$anchor = "<span id='$let'></span>";
 			}
 			else
 			{
@@ -210,6 +210,6 @@ class edition
 		$this->db->sql_freeresult($result);
 		$this->cache->put('_tags_table_' . $cap, $block, 86400);
 		return ($block);
-	}	// rebuild_cache_abc_table
+	}	// rebuild_cache_tags_table
 
 }

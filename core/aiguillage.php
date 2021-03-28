@@ -2,18 +2,13 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016-2019 LMDI - Pierre Duhem
+* @copyright (c) 2016-2021 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
-/*	La version antérieure travaillait sur des tables codées en dur parce que
+/*	La première version travaillait sur des tables codées en dur parce que
 	je ne pouvais pas interroger la base de données depuis l'extension.
-	Pour préserver l'avenir, je travaille désormais avec un fichier de données
-	nommé table_balises.data, qui est créé par un script table_balises.php.
-	Ce script se trouve dans le dossier www.galerie. Le fichier de données doit
-	se trouver dans le dossier /core de l'extension.
-	Le présent module se contente de lire le fichier et de le recracher.
 	*/
 
 namespace lmdi\index\core;
@@ -126,10 +121,10 @@ class aiguillage
 
 
 		$params = "/index?mode=ordre";
-		$url = append_sid ($this->phpbb_root_path . 'app.' . $this->phpEx . $params);
+		$url = append_sid($this->phpbb_root_path . 'app.' . $this->phpEx . $params);
 		$url .= "&amp;ord=";
 
-		$nbc = count ($tableau);
+		$nbc = count($tableau);
 		for ($i = 0; $i < $nbc; $i++)
 		{
 			$tab = $tableau[$i];
@@ -202,8 +197,6 @@ class aiguillage
 		$this->template->assign_vars(array(
 			'EDITOR'		=> generate_board_url() . '/' . append_sid("app.{$this->phpEx}/index", "mode=edition"),
 			'TITLE'		=> $titre,
-			'ABC'		=> $abc_links,
-			'CORPS'		=> $corps,
 			'S_AUTOR'		=> $autorisation,
 		));
 		page_footer();

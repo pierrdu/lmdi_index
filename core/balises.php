@@ -91,6 +91,7 @@ class balises
 		page_footer();
 	}	// main
 
+
 	private function lecture ($fichier)
 	{
 		if (file_exists ($fichier))

@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016-2019 LMDI - Pierre Duhem
+* @copyright (c) 2016-2021 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -104,11 +104,18 @@ class ordre
 		while ($row = mysqli_fetch_row ($resultat))
 		{
 			$famille = $row[0];
+			// Exclusion de la famille 'Inconnu'
 			if ($famille == 'Inconnu')
 			{
 				continue;
 			}
+			// Exclusion des pseudo-familles avec ~Schemas
 			if (strpos ($famille, '~'))
+			{
+				continue;
+			}
+			// Exclusion des superfamilles
+			if (strpos ($famille, 'dea'))
 			{
 				continue;
 			}
@@ -153,12 +160,6 @@ class ordre
 			'U_VIEW_FORUM'	=> $str_ordre,
 			'FORUM_NAME'	=> $this->language->lang('INDEX_PAGES_ORDRE'),
 		));
-
-		// Link to the active (edition) pages
-		$params = "/index?mode=index&amp;cap=A";
-		$url = append_sid ($this->phpbb_root_path . 'app.' . $this->phpEx . $params);
-		$abc_links .= "$str_links &mdash; <a href =\"$url\">Cliquez ici</a></h2><br><br>";
-
 
 		$titre = $this->language->lang('TBALISAGE');
 		page_header($titre);

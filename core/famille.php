@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016-2019 LMDI - Pierre Duhem
+* @copyright (c) 2016-2021 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -72,10 +72,12 @@ class famille
 		if ($this->config['server_name'] == "localhost")
 		{
 			$jeton = mysqli_connect ("localhost", "root", "pierred", "galerieins");
+			$token = mysqli_connect ("localhost", "root", "pierred", "qi_330b1");
 		}
 		else
 		{
 			$jeton = mysqli_connect ("galerieins.mysql.db", "galerieins", "Pi47Duhem", "galerieins");
+			$token = mysqli_connect ("galerieiforum.mysql.db", "galerieiforum", "Pi47Duhem", "galerieiforum");
 		}
 		$sql = "SELECT insect_classe.nom as classe, insect_ordre.nom as id_ordre 
 		FROM insect_photo p 
@@ -112,6 +114,7 @@ class famille
 			$tribu = $row[2];
 			$genre = $row[3];
 			$espece = $row[4];
+			// Suppression de la sous-espèce éventuelle
 			$pos = strpos ($espece, ' ');
 			if ($pos)
 			{
@@ -123,22 +126,31 @@ class famille
 			}
 			$oesp = $espece;
 			$cpteur ++;
+			$taxon = $genre . ' ' . $espece;
+			if ($this->existe_balise ($token, $taxon))
+			{
+				$urltax = sprintf ($url, "$genre+$espece");
+			}
+			else
+			{
+				continue;
+			}
 			$this->template->assign_block_vars('gbal', array(
 				'NUM'		=> $cpteur,
-				'FAM'		=> $famille,
 				'SFAM'		=> $sfamille,
 				'TRI'		=> $tribu,
 				'GEN'		=> "<i>$genre</i>",
 				'TAX'		=> $espece == 'sp.' ? "<i>$genre</i> $espece" : "<i>$genre $espece</i>",
-				'URLFAM'		=> sprintf ($url, $famille),
 				'URLSFAM'		=> sprintf ($url, $sfamille),
 				'URLTRI'		=> sprintf ($url, $tribu),
 				'URLGEN'		=> sprintf ($url, $genre),
-				'URLTAX'		=> sprintf ($url, "$genre+$espece"),
+				'URLTAX'		=> $urltax,
 				));
 		}
+		$url_famille = "<a href=\"" . sprintf ($url, $famille) . "\">$famille</a>";
 		mysqli_free_result ($resultat);
 		mysqli_close ($jeton);
+		mysqli_close ($token);
 
 
 		// Breadcrumbs
@@ -149,12 +161,6 @@ class famille
 			'FORUM_NAME'	=> $this->language->lang('INDEX_PAGES_FAMILLE'),
 		));
 
-		// Link to the active (edition) pages
-		$params = "/index?mode=index&amp;cap=A";
-		$url = append_sid ($this->phpbb_root_path . 'app.' . $this->phpEx . $params);
-		$abc_links .= "$str_links &mdash; <a href =\"$url\">Cliquez ici</a></h2><br><br>";
-
-
 
 		$titre = $this->language->lang('TBALISAGE');
 		page_header($titre);
@@ -164,7 +170,19 @@ class famille
 		$this->template->assign_vars(array(
 			'CLASSE'		=> $classe,
 			'ORDRE'		=> $ordre,
+			'FAMILLE'		=> $url_famille,
 		));
 		page_footer();
-	}
+	}	// fin de main
+
+	function existe_balise ($token, $taxon)
+	{
+		$sql = "SELECT * FROM " . $this->table_rh_tt . " WHERE tag = '$taxon'";
+		$result = mysqli_query ($token, $sql);
+		$row = mysqli_fetch_row ($result);
+		if ($row)
+			return (1);
+		else
+			return (0);
+	}	// fin de existe_balise
 }

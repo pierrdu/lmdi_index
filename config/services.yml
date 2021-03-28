@@ -9,10 +9,7 @@ services:
             - '@config'
             - '@controller.helper'
             - '@template'
-            - '@cache'
             - '@language'
-            - '%lmdi.index.tables.rh_t%'
-            - '%lmdi.index.tables.rh_tt%'
         tags:
             - { name: event.listener }
 

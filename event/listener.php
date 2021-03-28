@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Balisage
-* @copyright (c) 2016-2019 LMDI - Pierre Duhem
+* @copyright (c) 2016-2021 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -20,11 +20,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class listener implements EventSubscriberInterface
 {
 
-	protected $cache;
-	protected $language;
 	protected $db;
-	protected $template;
 	protected $config;
+	protected $language;
+	protected $template;
 	protected $helper;
 	protected $glossary_table;
 
@@ -33,19 +32,16 @@ class listener implements EventSubscriberInterface
 		\phpbb\config\config $config,
 		\phpbb\controller\helper $helper,
 		\phpbb\template\template $template,
-		\phpbb\cache\service $cache,
-		\phpbb\language\language $language,
-		$glossary_table
+		\phpbb\language\language $language
 		)
 	{
 		$this->db = $db;
 		$this->config = $config;
 		$this->helper = $helper;
 		$this->template = $template;
-		$this->cache = $cache;
 		$this->language = $language;
-		$this->glossary_table = $glossary_table;
 	}
+
 
 	static public function getSubscribedEvents ()
 	{
@@ -55,12 +51,14 @@ class listener implements EventSubscriberInterface
 		);
 	}
 
-	public function load_language_on_setup($event)
+
+	public function load_language_on_setup()
 	{
 		$this->language->add_lang('index', 'lmdi/index');
 	}
 
-	public function build_url ($event)
+
+	public function build_url ()
 	{
 		$this->template->assign_vars(array(
 			'U_BALISAGE'	=> $this->helper->route('lmdi_index_controller', array('mode' => 'aiguillage')),
