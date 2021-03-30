@@ -1,6 +1,6 @@
 <?php
 // baledit.php
-// (c) 2016-2019 - LMDI Pierre Duhem
+// (c) 2016-2021 - LMDI Pierre Duhem
 // Page d'édition des balides pour les animateurs
 // Tag edition page for moderators
 
@@ -178,7 +178,7 @@ class baledit
 		$this->db->sql_query ($sql);
 		$sql = "DELETE FROM $this->rh_t WHERE tag_id = $id";
 		$this->db->sql_query ($sql);
-	}
+	}	// Fin de suppression_balise
 
 
 	private function get_balise ($id)
@@ -189,7 +189,7 @@ class baledit
 		$tag = $row['tag'];
 		$this->db->sql_freeresult ($result);
 		return ($tag);
-	}
+	}	// Fin de get_balise
 
 
 	private function get_ids ($tag)
@@ -203,18 +203,18 @@ class baledit
 		}
 		$this->db->sql_freeresult ($result);
 		return ($ids);
-	}
+	}	// Fin de get_ids
 
 
 	private function get_nbbal ($id)
 	{
-		$sql  = "SELECT COUNT from $this->rh_tt WHERE id = $id";
+		$sql = "SELECT " . $this->rh_tt . ".count as nb from $this->rh_tt WHERE id = $id";
 		$result = $this->db->sql_query ($sql);
 		$row = $this->db->sql_fetchrow ($result);
-		$nbbal = (int) $row['count'];
+		$nbbal = (int) $row['nb'];
 		$this->db->sql_freeresult ($result);
 		return ($nbbal);
-	}
+	}	// Fin de get_nbbal
 
 
 	private function fusion_balises ($nid, $oid)
@@ -222,28 +222,45 @@ class baledit
 		// Nombre de balisages supprimés avec l'ancienne balise
 		$nbbal = $this->get_nbbal ($oid);
 		// Ajout de ce nombre au total de la nouvelle
-		$sql  = "UPDATE $this->rh_tt SET count=count+$nbbal WHERE id = $nid";
+		$sql = "UPDATE $this->rh_tt SET count=count+$nbbal WHERE id = $nid";
 		$this->db->sql_query ($sql);
 		// Modification des enregistrements de rh_t qui avaient l'ancien code
-		$sql  = "UPDATE $this->rh_t SET tag_id = $nid WHERE tag_id = $oid";
+		$sql = "UPDATE $this->rh_t SET tag_id = $nid WHERE tag_id = $oid";
 		$this->db->sql_query ($sql);
 		// Suppression de l'ancienne balise
 		$sql = "DELETE FROM $this->rh_tt WHERE id = $oid";
 		$this->db->sql_query ($sql);
-	}
+	}	// Fin de fusion_balises
 
-
+	/*	Une balise a été éditée. Nous sauvegardons le résultat, en vérifiant
+		qu'une balise n'existait pas déjà sous ce nom. Dans ce cas, nous
+		supprimons la nouvelle et nous incrémentons le nombre d'occurences
+		de l'ancienne.
+		*/
 	private function ren_balise ($id, $tag)
 	{
-		$sql = "UPDATE $this->rh_tt SET tag = '$tag' WHERE id =$id";
-		$this->db->sql_query ($sql);
-	}
+		$sql = "SELECT * FROM $this->rh_tt WHERE tag = '$tag'";
+		$result = $this->db->sql_query ($sql);
+		$row = $this->db->sql_fetchrow($result);
+		if ($row)
+		{
+			$balise = $row['tag'];
+			$nid = $row['id'];
+			$this->db->sql_freeresult ($result);
+			$this->fusion_balises ($nid, $id);
+		}
+		else
+		{
+			$sql = "UPDATE $this->rh_tt SET tag = '$tag' WHERE id = $id";
+			$this->db->sql_query ($sql);
+		}
+	}	// fin de ren_balise
 
 
 	private function invalidate_cache ($tag)
 	{
 		$init = substr ($tag, 0, 1);
 		$this->cache->destroy('_tags_table_' . $init);
-	}
+	}	// Fin de invalidate_cache
 
 }
