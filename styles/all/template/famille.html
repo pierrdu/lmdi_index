@@ -1,0 +1,48 @@
+{% INCLUDECSS 'index.css' %}
+{% INCLUDECSS 'scroll.css' %}
+{% INCLUDE 'overall_header.html' %}
+<span id="top"></span>
+
+<h2>{{ lang('INDEX_PAGES_FAMILLE') }}</h2>
+
+<div class="panel">
+	<div class="inner">
+	<span class="corners-top"><span></span></span>
+		<div class="content">
+		{% if S_AUTOR %}<p class="subtitle"><a href="{{ EDITOR }}">{{ lang('INDEX_EDIT_PAGES') }}</a></p>{% endif %}
+		<div class="glossa">{{ lang('INDEX_DISPLAY_PAGES') }}</div>
+		<div class="text">{{ lang('STATIC_FAMILLE_EXPLAIN') }}</div>
+		<table class="deg" cellspacing="1">
+			<thead>
+				<tr class="deg"><td class="deg3" colspan="6">{{ CLASSE }}</td></tr>
+				<tr class="deg"><td class="deg1" colspan="6">{{ ORDRE }}</td></tr>
+				<tr class="deg"><td class="deg0" colspan="6">Famille : {{ FAMILLE }}</td></tr>
+				<tr>
+				<td class="deg0"><b>N°</b></td>
+				<td class="deg0"><b>Sous-famille</b></td>
+				<td class="deg0"><b>Tribu</b></td>
+				<td class="deg0"><b>Genre</b></td>
+				<td class="deg0"><b>Taxon complet</b></td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for gbal in loops.gbal %}
+				<tr class="deg">
+				<td class="deg0">{{ gbal.NUM }}</td>
+				<td class="deg0"><a href="{{ gbal.URLSFAM }}">{{ gbal.SFAM }}</a></td>
+				<td class="deg0"><a href="{{ gbal.URLTRI }}">{{ gbal.TRI }}</a></td>
+				<td class="deg0"><a href="{{ gbal.URLGEN }}">{{ gbal.GEN }}</a></td>
+				<td class="deg0"><a href="{{ gbal.URLTAX }}">{{ gbal.TAX }}</a></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+			</table>
+		</div>
+	<span class="corners-bottom"><span></span></span>
+	</div>
+</div>
+<p id="back-top">
+	<a href="#top"><span></span><b>{{ lang('BACKTOP') }}</b></a>
+</p>
+
+{% INCLUDE 'overall_footer.html' %}

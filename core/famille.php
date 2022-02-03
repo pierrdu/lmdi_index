@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016-2021 LMDI - Pierre Duhem
+* @copyright (c) 2016-2022 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -99,7 +99,7 @@ class famille
 		LEFT JOIN insect_binom bi ON (p.id_binom = bi.id_binom) 
 		LEFT JOIN insect_sfamille ON (bi.id_sfamille = insect_sfamille.id_sfamille) 
 		LEFT JOIN insect_tribu ON (bi.id_tribu = insect_tribu.id_tribu) 
-		WHERE insect_famille.nom = '$famille' AND bi.genre != 'Inconnu' AND bi.espece != 'inconnu' 
+		WHERE insect_famille.nom = '$famille' AND bi.genre != 'Inconnu' 
 		GROUP BY famille, sfamille, tribu, genre, espece";
 		$resultat = mysqli_query ($jeton, $sql);
 
