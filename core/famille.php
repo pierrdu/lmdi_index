@@ -127,7 +127,10 @@ class famille
 			$oesp = $espece;
 			$cpteur ++;
 			$taxon = $genre . ' ' . $espece;
-			if ($this->existe_balise ($token, $taxon))
+			/*	Si c'est qqch inconnu, il ne faut pas tester sur tout, mais 
+				seulement sur le contenu de la case genre.
+				*/
+			if ($this->existe_balise ($token, $taxon) || $this->existe_balise ($token, $genre))
 			{
 				$urltax = sprintf ($url, "$genre+$espece");
 			}
@@ -173,7 +176,8 @@ class famille
 			'FAMILLE'		=> $url_famille,
 		));
 		page_footer();
-	}	// fin de main
+	}	// Fin de main
+
 
 	function existe_balise ($token, $taxon)
 	{
