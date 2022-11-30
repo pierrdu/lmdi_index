@@ -130,13 +130,20 @@ class famille
 			/*	Si c'est qqch inconnu, il ne faut pas tester sur tout, mais 
 				seulement sur le contenu de la case genre.
 				*/
-			if ($this->existe_balise ($token, $taxon) || $this->existe_balise ($token, $genre))
+			if ($this->existe_balise ($token, $taxon))
 			{
 				$urltax = sprintf ($url, "$genre+$espece");
 			}
 			else
 			{
-				continue;
+				if ($this->existe_balise ($token, $genre))
+				{
+					$urltax = sprintf ($url, "$genre");
+				}
+				else
+				{
+					continue;
+				}
 			}
 			$this->template->assign_block_vars('gbal', array(
 				'NUM'		=> $cpteur,

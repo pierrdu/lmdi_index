@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Indexing extension
-* @copyright (c) 2016-2021 LMDI - Pierre Duhem
+* @copyright (c) 2016-2022 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
