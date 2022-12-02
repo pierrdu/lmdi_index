@@ -1,7 +1,7 @@
 {% INCLUDECSS '@lmdi_index/index.css' %}
 {% INCLUDECSS '@lmdi_index/scroll.css' %}
 {% INCLUDE 'overall_header.html' %}
-<span id="top"></span>
+<span id="haut"></span>
 
 <h2>{{ lang('INDEX_PAGES_FAMILLE') }}</h2>
 
@@ -12,11 +12,11 @@
 		{% if S_AUTOR %}<p class="subtitle"><a href="{{ EDITOR }}">{{ lang('INDEX_EDIT_PAGES') }}</a></p>{% endif %}
 		<div class="glossa">{{ lang('INDEX_DISPLAY_PAGES') }}</div>
 		<div class="text">{{ lang('STATIC_FAMILLE_EXPLAIN') }}</div>
-		<table class="deg" cellspacing="1">
+		<table class="deg">
 			<thead>
-				<tr class="deg"><td class="deg3" colspan="6">{{ CLASSE }}</td></tr>
-				<tr class="deg"><td class="deg1" colspan="6">{{ ORDRE }}</td></tr>
-				<tr class="deg"><td class="deg0" colspan="6">Famille : {{ FAMILLE }}</td></tr>
+				<tr class="deg"><td class="deg3" colspan="5">{{ CLASSE }}</td></tr>
+				<tr class="deg"><td class="deg1" colspan="5">{{ ORDRE }}</td></tr>
+				<tr class="deg"><td class="deg0" colspan="5">Famille : {{ FAMILLE }}</td></tr>
 				<tr>
 				<td class="deg0"><b>N°</b></td>
 				<td class="deg0"><b>Sous-famille</b></td>
@@ -42,7 +42,7 @@
 	</div>
 </div>
 <p id="back-top">
-	<a href="#top"><span></span><b>{{ lang('BACKTOP') }}</b></a>
+	<a href="#haut"><span></span><b>{{ lang('BACKTOP') }}</b></a>
 </p>
 
 {% INCLUDE 'overall_footer.html' %}

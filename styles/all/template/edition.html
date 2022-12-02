@@ -1,6 +1,6 @@
 {% INCLUDECSS '@lmdi_index/index.css' %}
 {% INCLUDE 'overall_header.html' %}
-<span id="top"></span>
+<span id="haut"></span>
 
 <h2>{{ TITLE }}</h2>
 
@@ -9,13 +9,13 @@
 	<span class="corners-top"><span></span></span>
 		<div class="content">
 		<div class="glossa">{{ lang('INDEX_EDIT_PAGES') }}</div>
-		<br />
+		<br>
 		<div class="glossb">
 		{% for gabc in loops.gabc %}
 		{% if not gabc.S_URL %}<span class="cap cap0">{{ gabc.ABC }}&nbsp;</span>{% else %}<a class="cap" href ="{{ gabc.URL }}">{{ gabc.ABC }}&nbsp;</a>{% endif %}
 		{% endfor %}</div>
-		<br />
-		<table class="deg" cellspacing="1">
+		<br>
+		<table class="deg">
 			<thead>
 				<tr>
 					<th class="deg0">{{ lang('INDEX_NUMERO') }}</th>
@@ -44,7 +44,7 @@
 	</div>
 </div>
 <p id="back-top">
-	<a href="#top"><span></span><b>{{ lang('BACKTOP') }}</b></a>
+	<a href="#haut"><span></span><b>{{ lang('BACKTOP') }}</b></a>
 </p>
 
 {% INCLUDE 'overall_footer.html' %}
